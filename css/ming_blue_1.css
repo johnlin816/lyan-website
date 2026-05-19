@@ -1,0 +1,58 @@
+
+      a:link{color: #339900;font-weight:bold;text-decoration:none;font-size:18px;font-family : "標楷體";   }
+			a:visited{color: #339900;font-weight:bold;text-decoration:none;font-size:18px;font-family : "標楷體";}
+			a:active{color: #339900;font-weight:bold;text-decoration:none;font-size:18px;font-family : "標楷體";}
+			a:hover{color: #FFFFCC;font-weight:bold;text-decoration:none;font-size:18px;font-family : "標楷體";}
+						
+			.companyname{color: #FF6600;font-weight:bold;text-decoration:none;font-size:35px;font-family : "標楷體";}/*公司名稱*/
+		
+			.title1{color:#FF3366;font-weight:bold;text-decoration:none;font-size:20px;font-family : "標楷體";}/*大標題*/
+			.title2{color:#33FFCC;font-weight:bold;text-decoration:none;font-size:18px;font-family : "標楷體";}/*小標題*/
+			.title3{color:#999933;font-weight:bold;text-decoration:none;font-size:16px;font-family : "標楷體";}/*反色小標題*/
+		
+			.text1{color: #CC00FF;line-height:130%;text-decoration:none;font-size:15px;font-family : "標楷體"; }/*內文 1*/
+			.text2{color: #CCFF00;line-height:130%;text-decoration:none;font-size:15px;font-family : "標楷體"; }/*內文 2*/	
+
+			.table1{color:#0066CC;border: 1px  #000000;}/*solid 實線框 double雙線框*/
+
+			.copyright{color:#6699FF;text-decoration:none;font-size:16px;font-family : "標楷體";}/*公司名稱*/
+		
+			input,select,textarea{color: #0066FF;font-size:9pt;background-color:#EDEDED;border-top: 1px double #CBCBCB;border-bottom: 1px double #CBCBCB;border-left: 1px double #CBCBCB;border-right: 1px double #CBCBCB;}
+		
+			.bg_no_repeat{background-repeat:no-repeat; }/*表格背景固定*/
+
+	.tableSetting {
+		BORDER-COLOR: #66CCFF;
+		}
+	.tableTitle {
+		BORDER-RIGHT: #66CCFF 1px solid; BORDER-TOP: #66CCFF 1px solid; BORDER-LEFT: #66CCFF 1px solid; BORDER-BOTTOM: #66CCFF 1px solid;
+		BACKGROUND-COLOR: #CCFFCC;
+		}
+	.tableContent {
+		BORDER-RIGHT: #66CCFF 1px solid; BORDER-TOP: #66CCFF 1px solid; BORDER-LEFT: #66CCFF 1px solid; BORDER-BOTTOM: #66CCFF 1px solid;
+		BACKGROUND-COLOR: #CCFF66;
+		}	
+	
+	.TDMBLANK {
+				BORDER-RIGHT: #999966 1px solid;
+		}
+
+	.TDMMENU {
+				BORDER-BOTTOM: #999966 1px solid; BORDER-RIGHT: #999966 1px solid; FONT-SIZE: 9pt; COLOR: #FFFFFF; BACKGROUND-COLOR: #FFFF33; font-family:serif;
+		}
+		
+	.TDMMENU {
+		star : expression(onmouseover=function() 
+		{this.style.backgroundColor="#FF99CC"}, 
+		onmouseout=function(){this.style.backgroundColor="#FFFF33"})
+	}	
+			
+	.BTN {
+		border:2px outset #FFFF33; FONT-SIZE: 9pt; COLOR: #339900; BACKGROUND-COLOR: #FFFF33; font-family:serif;
+	}
+	
+	.BTN {
+		star : expression(onmouseover=function() 
+		{this.style.backgroundColor="#FF99CC"; this.style.borderColor="#FF99CC"; this.style.color="#FFFFCC";}, 
+		onmouseout=function(){this.style.backgroundColor="#FFFF33"; this.style.borderColor="#FFFF33"; this.style.color="#339900";})
+	}		

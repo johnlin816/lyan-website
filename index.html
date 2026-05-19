@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="利安貿易有限公司專營進口干貝、刺參、吉品乾鮑、日本網鮑、澳洲鮑魚、飯岡屋調味南美貝、蒟蒻粉、韓國松茸等高級海乾貨食材。">
+  <title>利安貿易有限公司 LY AN TRADE CO.,LTD. - 專營進口干貝、刺參、吉品乾鮑、鮑魚、松茸</title>
+
+  <style>
+    /* =============================================
+       CSS 自訂變數 (Color / Layout Tokens)
+    ============================================= */
+    :root {
+      --color-primary:    #713917;
+      --color-primary-dk: #4e2610;
+      --color-gold:       #b8860b;
+      --color-text:       #333333;
+      --color-text-light: #666666;
+      --color-white:      #ffffff;
+      --color-bg-nav:     #f5ede3;
+      --color-border:     #713917;
+
+      --font-base: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", Arial, sans-serif;
+
+      --nav-w:  200px;
+      --max-w:  900px;
+      --gap:    1.25rem;
+    }
+
+    /* =============================================
+       Reset & Base
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-base);
+      color: var(--color-text);
+      background-color: #e8ddd0;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    ul { list-style: none; }
+
+    /* =============================================
+       Page Wrapper
+    ============================================= */
+    .page-wrapper {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* =============================================
+       Header
+    ============================================= */
+    /* =============================================
+       Site Header — Style B 米色寬帶雙線金框
+    ============================================= */
+    .site-header {
+      background: #fdf6e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 28px;
+      min-height: 96px;
+      border-top: 4px solid #713917;
+      border-bottom: 4px solid #713917;
+      position: relative;
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #c9a96e;
+    }
+
+    .site-header::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #c9a96e;
+    }
+
+    .header-inner {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .site-title-cn {
+      font-size: 20px;
+      font-weight: 700;
+      color: #4e2610;
+      letter-spacing: 0.15em;
+      margin: 0;
+    }
+
+    .title-dot-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .title-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #b8860b;
+    }
+
+    .title-line {
+      width: 40px;
+      height: 0.5px;
+      background: #b8860b;
+    }
+
+    .site-title-en {
+      font-size: 10px;
+      font-weight: 400;
+      color: #8a6440;
+      letter-spacing: 0.2em;
+      margin: 0;
+    }
+
+    @media (max-width: 540px) {
+      .site-title-cn { font-size: 18px; }
+    }
+
+    /* =============================================
+       Content Wrapper — CSS Grid (nav + main)
+    ============================================= */
+    .content-wrapper {
+      flex: 1;
+      display: grid;
+      grid-template-columns: var(--nav-w) 1fr;
+      grid-template-areas: "nav main";
+      background-color: rgba(255, 255, 255, 0.84);
+      }
+
+    /* =============================================
+       Side Navigation
+    ============================================= */
+        /* =============================================
+       Side Navigation — Style B 金框印章按鈕
+    ============================================= */
+    .site-nav {
+      grid-area: nav;
+      padding: 0;
+      border-right: 1px solid #d5b89a;
+      background: #fdf6e8;
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+    }
+
+    .site-nav ul {
+      padding: 1.25rem 0.75rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .site-nav li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #713917;
+      border: 1px solid #c9a96e;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: background 0.18s, color 0.18s;
+    }
+
+    .site-nav li a:hover,
+    .site-nav li a:focus-visible {
+      background: #713917;
+      color: #f5e6c8;
+    }
+    .site-nav::after {
+      content: '';
+      flex: 1;
+      min-height: 20px;
+      border-top: 0.5px solid rgba(201,169,110,.35);
+      background-image:
+        linear-gradient(45deg, rgba(184,134,11,.12) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(184,134,11,.12) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(184,134,11,.12) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(184,134,11,.12) 75%);
+      background-size: 12px 12px;
+      background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+    }
+
+    /* =============================================
+       Main Content
+    ============================================= */
+    .site-main {
+      grid-area: main;
+      padding: 0 1.25rem 1.5rem;
+      min-width: 0; /* prevent grid blowout */
+    }
+
+    /* =============================================
+       Ticker（CSS animation 取代 <marquee>）
+    ============================================= */
+    .ticker-wrap {
+      overflow: hidden;
+      background-color: rgba(255, 255, 255, 0.55);
+      border-bottom: 1px solid #ddd;
+      padding: 0.3rem 0;
+      margin-bottom: 0.9rem;
+    }
+
+    .ticker-track {
+      display: inline-block;  /* inline-block 讓 padding-left:100% 相對父元素計算 */
+      padding-left: 100%;     /* 100% = .ticker-wrap 寬度 → 文字推到右側螢幕外 */
+      white-space: nowrap;
+      animation: ticker-scroll 22s linear infinite;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    .ticker-text {
+      font-size: 0.88rem;
+      color: var(--color-primary);
+    }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }       /* 從右側螢幕外進入 */
+      100% { transform: translateX(-100%); }   /* 完整向左捲出 */
+    }
+
+    /* =============================================
+       Section: 公司簡介
+    ============================================= */
+    .intro-section {
+      padding-top: 0.5rem;
+    }
+
+    /* 區塊標題列（用背景圖保留原始視覺） */
+        /* =============================================
+       Section Heading Bar — Style B 米色左棕框標籤
+    ============================================= */
+    .section-heading-bar {
+      display: inline-flex;
+      align-items: center;
+      height: 32px;
+      min-width: 120px;
+      padding: 0 1rem;
+      margin-bottom: 1.1rem;
+      background: #fdf6e8;
+      border: 1px solid #c9a96e;
+      border-left: 3px solid #713917;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .section-heading-bar span {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #4e2610;
+      letter-spacing: 0.06em;
+    }
+
+    /* 「關於我們」子標題 */
+    .subsection-header {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .subsection-divider {
+      display: inline-block;
+      width: 2px;
+      height: 14px;
+      background-image: url('./image/imge/01.gif');
+      background-repeat: no-repeat;
+      background-size: 2px 13px;
+      background-position: center;
+      background-color: var(--color-primary); /* fallback */
+      flex-shrink: 0;
+    }
+
+    .subsection-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      letter-spacing: 0.05em;
+    }
+
+    /* 內文 */
+    .intro-text {
+      font-size: 0.875rem;
+      line-height: 1.85;
+      color: var(--color-text);
+    }
+
+    .intro-text p {
+      margin-bottom: 0.8rem;
+    }
+
+    .intro-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 分隔線 */
+    .section-rule {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin-top: 1.25rem;
+    }
+
+    /* =============================================
+       Footer
+    ============================================= */
+    .site-footer {
+      background-color: rgba(255, 255, 255, 0.78);
+      border-top: 2px solid var(--color-primary);
+      padding: 0.65rem 1rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: var(--color-text-light);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-deco {
+      width: 100%;
+      max-width: 570px;
+      height: 8px;
+      background-image: url('./image/imge/1-1.gif');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 570px 8px;
+    }
+
+    /* =============================================
+       RWD — Tablet ( ≤ 768px )
+    ============================================= */
+    @media (max-width: 768px) {
+      :root { --nav-w: 160px; }
+
+      .site-nav li a {
+        font-size: 0.85rem;
+      }
+
+      .intro-text {
+        font-size: 0.84rem;
+      }
+    }
+
+    /* =============================================
+       RWD — Mobile ( ≤ 540px ) — Stack layout
+    ============================================= */
+    @media (max-width: 540px) {
+      /* Grid 改為單欄垂直排列 */
+      .content-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "nav"
+          "main";
+      }
+
+      /* Nav 改橫向 wrap */
+      .site-nav {
+        border-right: none;
+        border-bottom: 1px solid #d5b89a;
+        padding: 0.65rem 0.75rem;
+      }
+
+      .site-nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .site-nav li a {
+        height: 36px;
+        padding: 0 0.8rem;
+        font-size: 0.82rem;
+        background-image: none;
+        background-color: var(--color-bg-nav);
+        border: 1px solid var(--color-primary);
+        border-radius: 4px;
+      }
+
+      .site-nav li a:hover,
+      .site-nav li a:focus-visible {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        transform: none;
+        opacity: 1;
+      }
+
+      .site-main {
+        padding: 0.75rem;
+      }
+
+      .section-heading-bar {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-deco {
+        background-size: 100% 8px;
+        max-width: 100%;
+      }
+    }
+
+    /* =============================================
+       RWD — Small mobile ( ≤ 380px )
+    ============================================= */
+    @media (max-width: 380px) {
+      .site-nav li a {
+        height: 34px;
+      }
+
+      .intro-text {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* =============================================
+       Accessibility: prefers-reduced-motion
+    ============================================= */
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track {
+        animation: none;
+        padding-left: 0.75rem;
+      }
+      .ticker-wrap {
+        padding: 0.3rem 0;
+      }
+    }
+
+    /* Focus outline */
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    /* Print */
+    @media print {
+      body { background: white; }
+      .ticker-wrap { display: none; }
+      .site-nav li a { background-image: none; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ===== Header ===== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="site-title-cn">利安貿易有限公司</h1>
+        <div class="title-dot-row">
+          <div class="title-line"></div>
+          <div class="title-dot"></div>
+          <div class="title-dot"></div>
+          <div class="title-dot"></div>
+          <div class="title-line"></div>
+        </div>
+        <p class="site-title-en">LY AN TRADE CO., LTD.</p>
+      </div>
+    </header>
+
+    <!-- ===== Content Grid (nav + main) ===== -->
+    <div class="content-wrapper">
+
+      <!-- Side Navigation -->
+      <nav class="site-nav" aria-label="主選單">
+        <ul>
+          <li><a href="./introduction.html">公司簡介</a></li>
+          <li><a href="./whatsnew.html">最新消息</a></li>
+          <li><a href="./catalog.html">商品型錄</a></li>
+          <li><a href="./branch.html">客戶服務</a></li>
+          <li><a href="./addressbook.html">聯絡資訊</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="site-main" id="main-content">
+
+        <!-- Ticker（CSS animation 取代 <marquee>）-->
+        <div class="ticker-wrap" aria-label="最新公告" role="marquee">
+          <div class="ticker-track">
+            <span class="ticker-text">專營進口：干貝、刺參、吉品乾鮑、日本網鮑、日本五島明鮑、澳洲鮑魚、飯岡屋調味南美貝、蒟蒻粉、韓國松茸</span>
+          </div>
+        </div>
+
+        <!-- 公司簡介 Section -->
+        <section class="intro-section" aria-labelledby="section-intro">
+
+          <div class="section-heading-bar">
+            <span id="section-intro">公司簡介</span>
+          </div>
+
+          <div class="subsection-header">
+            <span class="subsection-divider" aria-hidden="true"></span>
+            <h2 class="subsection-title">關於我們</h2>
+            <span class="subsection-divider" aria-hidden="true"></span>
+          </div>
+
+          <div class="intro-text">
+            <p>高品質的海鮮食材的經營是一門歷史悠久的傳統行業，近年隨著國民生活素質的改善，對飲食的要求也越來越高，鮑參翅肚等海味就更受到消費者的歡迎。</p>
+            <p>本公司專營進口全球海鮮類的產品。我們致力於從原產國採購，直接進口輸入台灣，進而提供價美物廉的貨物給客戶。我們堅持「貨真價實，薄利多銷」的服務宗旨，因而建立了良好的信譽及品質。</p>
+            <p>目前主要合作原產國廠商與代理的產品如下（全部皆為產地直送）：</p>
+            <p>
+              1. 日本北海道最大漁聯組織 乾干貝、乾鮑（吉品／沃麻）、海參、冷凍干貝<br>
+              2. 日本知名品牌 飯岡屋調味南美貝<br>
+              3. 日本最大蒟蒻粉工廠 白雪牌蒟蒻粉<br>
+              4. 世界知名品牌 墨西哥車輪牌（Calmex brand）鮑魚罐頭<br>
+              5. 澳洲最大鮑魚工廠 塔斯馬尼亞公司<br>
+              6. 智利最大鮑魚工廠 海珍珠公司<br>
+              7. 韓國最大松茸工廠 裕盛物產公司
+            </p>
+          </div>
+
+          <hr class="section-rule">
+        </section>
+
+      </main>
+    </div><!-- /.content-wrapper -->
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-copy">LY AN TRADE CO., LTD. &copy; All Rights Reserved</p>
+        <div class="footer-deco" role="presentation" aria-hidden="true"></div>
+      </div>
+    </footer>
+
+  </div><!-- /.page-wrapper -->
+</body>
+</html>
+                 

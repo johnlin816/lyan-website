@@ -1,0 +1,58 @@
+
+      a:link{color:#FF6666;font-weight:bold;text-decoration:none;font-size:18px;font-family : "新細明體";}
+			a:visited{color:#FF6666;font-weight:bold;text-decoration:none;font-size:18px;font-family : "新細明體";}
+			a:active{color:#FF6666;font-weight:bold;text-decoration:none;font-size:18px;font-family : "新細明體";}
+			a:hover{color:#CC3399;font-weight:bold;text-decoration:none;font-size:18px;font-family : "新細明體";}
+						
+			.companyname{color:#6633CC;font-weight:bold;text-decoration:none;font-size:35px;font-family : "新細明體";}/*公司名稱*/
+		
+			.title1{color:#0033CC;font-weight:bold;text-decoration:none;font-size:20px;font-family : "新細明體 ";}/*大標題*/
+			.title2{color:#6666FF;font-weight:bold;text-decoration:none;font-size:18px;font-family : "新細明體";}/*小標題*/
+			.title3{color:#FF00CC;font-weight:bold;text-decoration:none;font-size:16px;font-family : "新細明體";}/*反色小標題*/
+		
+			.text1{color: #FF9900;line-height:130%;font-weight:bold;text-decoration:none;font-size:15px;font-family : "新細明體"; }/*內文 1*/
+			.text2{color: #FFCC00;line-height:130%;text-decoration:none;font-size:15px;font-family : "新細明體"; }/*內文 2*/	
+
+			.table1{color:#FF6600;border: 1px  #000000;}/*solid 實線框 double雙線框*/
+
+			.copyright{color:#CC66FF;font-weight:bold;text-decoration:none;font-size:16px;font-family : "新細明體";}/*公司名稱*/
+		
+			input,select,textarea{color:#000000;font-size:9pt;background-color:#EDEDED;border-top:1px double #000000;border-bottom:1px double #000000;border-left:1px double #000000;border-right:1px double #000000;}
+		
+			.bg_no_repeat{background-repeat:no-repeat; }/*表格背景固定*/
+
+	.tableSetting {
+		BORDER-COLOR: #99CCFF;
+		}
+	.tableTitle {
+		BORDER-RIGHT: #99CCFF 1px solid; BORDER-TOP: #99CCFF 1px solid; BORDER-LEFT: #99CCFF 1px solid; BORDER-BOTTOM: #99CCFF 1px solid;
+		BACKGROUND-COLOR: #FFFF66;
+		}
+	.tableContent {
+		BORDER-RIGHT: #99CCFF 1px solid; BORDER-TOP: #99CCFF 1px solid; BORDER-LEFT: #99CCFF 1px solid; BORDER-BOTTOM: #99CCFF 1px solid;
+		BACKGROUND-COLOR: #CCFFCC;
+		}	
+
+	.TDMBLANK {
+				BORDER-RIGHT: #999966 1px solid;
+		}
+
+	.TDMMENU {
+				BORDER-BOTTOM: #999966 1px solid; BORDER-RIGHT: #999966 1px solid; FONT-SIZE: 9pt; COLOR: #FFFFFF; BACKGROUND-COLOR: #33FF99; font-family:serif;
+		}
+		
+	.TDMMENU {
+		star : expression(onmouseover=function() 
+		{this.style.backgroundColor="#CCCCFF"}, 
+		onmouseout=function(){this.style.backgroundColor="#33FF99"})
+	}
+	
+	.BTN {
+		border:2px outset #33FF99; FONT-SIZE: 9pt; COLOR: #FF6666; BACKGROUND-COLOR: #33FF99; font-family:serif;
+	}
+	
+	.BTN {
+		star : expression(onmouseover=function() 
+		{this.style.backgroundColor="#CCCCFF"; this.style.borderColor="#CCCCFF"; this.style.color="#CC3399";}, 
+		onmouseout=function(){this.style.backgroundColor="#33FF99"; this.style.borderColor="#33FF99"; this.style.color="#FF6666";})
+	}		

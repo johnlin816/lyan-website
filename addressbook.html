@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="利安貿易有限公司聯絡資訊：電話 02-2553-9217，地址台北市大同區民生西路401號1樓，電子郵件 lyan.trade@msa.hinet.net。">
+  <title>聯絡資訊 - 利安貿易有限公司 LY AN TRADE CO.,LTD.</title>
+
+  <style>
+    /* =============================================
+       CSS 自訂變數 (Color / Layout Tokens)
+    ============================================= */
+    :root {
+      --color-primary:    #713917;
+      --color-primary-dk: #4e2610;
+      --color-gold:       #b8860b;
+      --color-text:       #333333;
+      --color-text-light: #666666;
+      --color-white:      #ffffff;
+      --color-bg-nav:     #f5ede3;
+      --color-th:         #cccccc;
+      --color-td:         #eeeeee;
+      --color-border:     #713917;
+
+      --font-base: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", Arial, sans-serif;
+
+      --nav-w:  200px;
+      --max-w:  900px;
+      --gap:    1.25rem;
+    }
+
+    /* =============================================
+       Reset & Base
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-base);
+      color: var(--color-text);
+      background-color: #e8ddd0;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    ul { list-style: none; }
+
+    /* =============================================
+       Page Wrapper
+    ============================================= */
+    .page-wrapper {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* =============================================
+       Header
+    ============================================= */
+    /* =============================================
+       Site Header — Style B 米色寬帶雙線金框
+    ============================================= */
+    .site-header {
+      background: #fdf6e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 28px;
+      min-height: 96px;
+      border-top: 4px solid #713917;
+      border-bottom: 4px solid #713917;
+      position: relative;
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #c9a96e;
+    }
+
+    .site-header::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #c9a96e;
+    }
+
+    .header-inner {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .site-title-cn {
+      font-size: 20px;
+      font-weight: 700;
+      color: #4e2610;
+      letter-spacing: 0.15em;
+      margin: 0;
+    }
+
+    .title-dot-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .title-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #b8860b;
+    }
+
+    .title-line {
+      width: 40px;
+      height: 0.5px;
+      background: #b8860b;
+    }
+
+    .site-title-en {
+      font-size: 10px;
+      font-weight: 400;
+      color: #8a6440;
+      letter-spacing: 0.2em;
+      margin: 0;
+    }
+
+    @media (max-width: 540px) {
+      .site-title-cn { font-size: 18px; }
+    }
+
+    /* =============================================
+       Content Wrapper — CSS Grid (nav + main)
+    ============================================= */
+    .content-wrapper {
+      flex: 1;
+      display: grid;
+      grid-template-columns: var(--nav-w) 1fr;
+      grid-template-areas: "nav main";
+      background-color: rgba(255, 255, 255, 0.84);
+      }
+
+    /* =============================================
+       Side Navigation
+    ============================================= */
+        /* =============================================
+       Side Navigation — Style B 金框印章按鈕
+    ============================================= */
+    .site-nav {
+      grid-area: nav;
+      padding: 0;
+      border-right: 1px solid #d5b89a;
+      background: #fdf6e8;
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+    }
+
+    .site-nav ul {
+      padding: 1.25rem 0.75rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .site-nav li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #713917;
+      border: 1px solid #c9a96e;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: background 0.18s, color 0.18s;
+    }
+
+    .site-nav li a:hover,
+    .site-nav li a:focus-visible {
+      background: #713917;
+      color: #f5e6c8;
+    }
+    .site-nav::after {
+      content: '';
+      flex: 1;
+      min-height: 20px;
+      border-top: 0.5px solid rgba(201,169,110,.35);
+      background-image:
+        linear-gradient(45deg, rgba(184,134,11,.12) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(184,134,11,.12) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(184,134,11,.12) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(184,134,11,.12) 75%);
+      background-size: 12px 12px;
+      background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+    }
+
+    /* 目前頁面 active 狀態 */
+    .site-nav li a[aria-current="page"] {
+      color: var(--color-primary);
+      font-weight: 700;
+      opacity: 0.9;
+    }
+    .site-nav li a[aria-current="page"]:hover,
+    .site-nav li a[aria-current="page"]:focus-visible { color: #f5e6c8; }
+
+    /* =============================================
+       Main Content
+    ============================================= */
+    .site-main {
+      grid-area: main;
+      padding: 0 1.25rem 1.5rem;
+      min-width: 0;
+    }
+
+    /* =============================================
+       Ticker（CSS animation 取代 <marquee>）
+    ============================================= */
+    .ticker-wrap {
+      overflow: hidden;
+      background-color: rgba(255, 255, 255, 0.55);
+      border-bottom: 1px solid #ddd;
+      padding: 0.3rem 0;
+      margin-bottom: 0.9rem;
+    }
+
+    .ticker-track {
+      display: inline-block;  /* inline-block 讓 padding-left:100% 相對父元素計算 */
+      padding-left: 100%;     /* 100% = .ticker-wrap 寬度 → 文字推到右側螢幕外 */
+      white-space: nowrap;
+      animation: ticker-scroll 22s linear infinite;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    .ticker-text {
+      font-size: 0.88rem;
+      color: var(--color-primary);
+    }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }       /* 從右側螢幕外進入 */
+      100% { transform: translateX(-100%); }   /* 完整向左捲出 */
+    }
+
+    /* =============================================
+       Section: 聯絡資訊
+    ============================================= */
+    .contact-section {
+      padding-top: 0.5rem;
+    }
+
+    /* 區塊標題列 */
+        /* =============================================
+       Section Heading Bar — Style B 米色左棕框標籤
+    ============================================= */
+    .section-heading-bar {
+      display: inline-flex;
+      align-items: center;
+      height: 32px;
+      min-width: 120px;
+      padding: 0 1rem;
+      margin-bottom: 1.1rem;
+      background: #fdf6e8;
+      border: 1px solid #c9a96e;
+      border-left: 3px solid #713917;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .section-heading-bar span {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #4e2610;
+      letter-spacing: 0.06em;
+    }
+
+    /* =============================================
+       Contact Table
+    ============================================= */
+    .contact-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .contact-table th,
+    .contact-table td {
+      padding: 0.55rem 0.75rem;
+      vertical-align: middle;
+    }
+
+    .contact-table th {
+      background: #fdf6e8;
+      color: #4e2610;
+      font-weight: 600;
+      text-align: center;
+      white-space: nowrap;
+      width: 30%;
+      border: 1px solid #c9a96e;
+      border-left: 3px solid #713917;
+    }
+
+    .contact-table td {
+      background: #ffffff;
+      color: var(--color-text);
+      border: 1px solid #e0d5c5;
+    }
+
+    .contact-table a {
+      color: var(--color-primary);
+      word-break: break-all;
+    }
+
+    .contact-table a:hover {
+      text-decoration: underline;
+    }
+
+    /* 電話連結樣式 */
+    a[href^="tel:"],
+    a[href^="mailto:"] {
+      font-weight: 500;
+    }
+
+    /* =============================================
+       Footer
+    ============================================= */
+    .site-footer {
+      background-color: rgba(255, 255, 255, 0.78);
+      border-top: 2px solid var(--color-primary);
+      padding: 0.65rem 1rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: var(--color-text-light);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-deco {
+      width: 100%;
+      max-width: 570px;
+      height: 8px;
+      background-image: url('./image/imge/1-1.gif');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 570px 8px;
+    }
+
+    /* =============================================
+       漢堡抽屜 — 桌機預設（隱藏）
+       在 ≤540px media 中啟用
+    ============================================= */
+    .nav-drawer-toggle,
+    .nav-drawer-close { display: none; }
+
+    /* 半透明遮罩：JS 加 .active 後顯示 */
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .45);
+      z-index: 199;
+      cursor: pointer;
+    }
+    .nav-backdrop.active { display: block; }
+
+        /* =============================================
+       RWD — Tablet ( ≤ 768px )
+    ============================================= */
+    @media (max-width: 768px) {
+      :root { --nav-w: 160px; }
+
+      .site-nav li a {
+        font-size: 0.85rem;
+      }
+
+      .contact-table th {
+        width: 35%;
+        font-size: 0.82rem;
+      }
+
+      .contact-table td {
+        font-size: 0.82rem;
+      }
+    }
+
+    /* =============================================
+       RWD — Mobile ( ≤ 540px ) — 漢堡抽屜版面
+    ============================================= */
+    @media (max-width: 540px) {
+
+      /* 內容區：移除 nav 欄，主內容佔滿全寬 */
+      .content-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: "main";
+      }
+
+      /* 漢堡按鈕：顯示於 header 右側 */
+      .nav-drawer-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: .85rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px; height: 44px;
+        font-size: 1.4rem;
+        line-height: 1;
+        color: #fff;
+        background: var(--color-primary);
+        border: 2px solid var(--color-primary-dk);
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 2px 5px rgba(0,0,0,.22);
+      }
+      .nav-drawer-toggle:hover,
+      .nav-drawer-toggle:focus-visible {
+        background: var(--color-primary-dk);
+      }
+
+      /* 關閉按鈕 */
+      .nav-drawer-close {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        padding: .4rem .1rem .75rem;
+        font-size: 1.2rem;
+        color: var(--color-primary-dk);
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .nav-drawer-close:hover,
+      .nav-drawer-close:focus-visible { color: var(--color-primary); }
+
+      /* Nav → fixed 左側抽屜 */
+      .site-nav {
+        position: fixed;
+        top: 0; left: 0;
+        width: 260px;
+        height: 100%;
+        overflow-y: auto;
+        background: #fdf6e8;
+        border-right: 2px solid #c9a96e;
+        border-bottom: none;
+        padding: .5rem .8rem 2.5rem;
+        transform: translateX(-100%);
+        transition: transform .25s ease;
+        z-index: 200;
+        box-shadow: 3px 0 18px rgba(0,0,0,.18);
+      }
+      .site-nav.drawer-open { transform: translateX(0); }
+
+      .site-nav ul {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0;
+        padding: 0 .25rem;
+      }
+      #site-nav li a {
+        display: flex !important;
+        align-items: center;
+        height: auto !important;
+        min-height: 44px;
+        padding: .65rem .85rem !important;
+        font-size: .92rem;
+        font-weight: 600;
+        color: var(--color-primary-dk) !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        border-bottom: 1px solid #e2d0b8 !important;
+        letter-spacing: .03em;
+        text-decoration: none;
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(113,57,23,.15);
+      }
+      #site-nav li a:hover,
+      #site-nav li a:focus-visible {
+        background-color: rgba(113,57,23,.08) !important;
+        color: var(--color-primary) !important;
+      }
+
+      .site-main { padding: .75rem; }
+
+      .section-heading-bar {
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Contact table 改為區塊堆疊 */
+      .contact-table,
+      .contact-table thead,
+      .contact-table tbody,
+      .contact-table tr {
+        display: block;
+        width: 100%;
+      }
+
+      .contact-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.4rem;
+        border: 1px solid #d5d5d5;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .contact-table th {
+        width: 100%;
+        text-align: left;
+        padding: 0.35rem 0.65rem;
+        background-color: #c8c8c8;
+        font-size: 0.78rem;
+        white-space: normal;
+      }
+
+      .contact-table td {
+        width: 100%;
+        padding: 0.4rem 0.65rem;
+        font-size: 0.82rem;
+        border: none;
+        border-top: 1px solid #d5d5d5;
+      }
+
+      .footer-deco {
+        background-size: 100% 8px;
+        max-width: 100%;
+      }
+    }
+
+    /* =============================================
+       RWD — Small mobile ( ≤ 380px )
+    ============================================= */
+    @media (max-width: 380px) {
+      .site-nav li a {
+        height: 34px;
+      }
+    }
+
+    /* =============================================
+       Accessibility & Motion
+    ============================================= */
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track {
+        animation: none;
+        padding-left: 0.75rem;
+      }
+      .ticker-wrap {
+        padding: 0.3rem 0;
+      }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    @media print {
+      body { background: white; }
+      .ticker-wrap { display: none; }
+      .site-nav li a { background-image: none; border: 1px solid #ccc; }
+      .contact-table th { background-color: #eee; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ===== Header ===== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="site-title-cn">利安貿易有限公司</h1>
+        <div class="title-dot-row">
+          <div class="title-line"></div>
+          <div class="title-dot"></div>
+          <div class="title-dot"></div>
+          <div class="title-dot"></div>
+          <div class="title-line"></div>
+        </div>
+        <p class="site-title-en">LY AN TRADE CO., LTD.</p>
+      <!-- 漢堡按鈕：手機版顯示，桌機隱藏 -->
+      <button id="nav-drawer-toggle" class="nav-drawer-toggle"
+              aria-label="開啟選單" aria-expanded="false"
+              aria-controls="site-nav">&#9776;</button>
+    </header>
+
+    <!-- ===== Content Grid (nav + main) ===== -->
+    <div class="content-wrapper">
+
+      <!-- Side Navigation -->
+      <nav class="site-nav" id="site-nav" aria-label="主選單">
+        <!-- 關閉按鈕：手機抽屜內顯示 -->
+        <button class="nav-drawer-close" id="nav-drawer-close" aria-label="關閉選單">&#x2715;</button>
+        <ul>
+          <li><a href="./introduction.html">公司簡介</a></li>
+          <li><a href="./whatsnew.html">最新消息</a></li>
+          <li><a href="./catalog.html">商品型錄</a></li>
+          <li><a href="./branch.html">客戶服務</a></li>
+          <li><a href="./addressbook.html" aria-current="page">聯絡資訊</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="site-main" id="main-content">
+
+        <!-- Ticker（CSS animation 取代 <marquee>）-->
+        <div class="ticker-wrap" aria-label="最新公告" role="marquee">
+          <div class="ticker-track">
+            <span class="ticker-text">專營進口：鮑魚、干貝、刺參、飯岡屋調味南美貝、花膠魚肚、燕窩、南美貝</span>
+          </div>
+        </div>
+
+        <!-- 聯絡資訊 Section -->
+        <section class="contact-section" aria-labelledby="section-contact">
+
+          <div class="section-heading-bar">
+            <span id="section-contact">聯絡資訊</span>
+          </div>
+
+          <address>
+            <table class="contact-table">
+<tbody>
+                <tr>
+                  <th scope="row">公司中文名稱</th>
+                  <td>利安貿易有限公司</td>
+                </tr>
+                <tr>
+                  <th scope="row">公司英文名稱</th>
+                  <td>LY AN TRADE CO., LTD.</td>
+                </tr>
+                <tr>
+                  <th scope="row">電　　　話</th>
+                  <td><a href="tel:+886225539217">02-2553-9217</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">傳　　　真</th>
+                  <td>02-2553-9219</td>
+                </tr>
+                <tr>
+                  <th scope="row">地　　　址</th>
+                  <td>103 台北市大同區民生西路401號1樓</td>
+                </tr>
+                <tr>
+                  <th scope="row">電子郵件信箱</th>
+                  <td><a href="mailto:lyan.trade@msa.hinet.net">lyan.trade@msa.hinet.net</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">網　　　址</th>
+                  <td><a href="https://www.lyan.com.tw" target="_blank" rel="noopener noreferrer">https://www.lyan.com.tw</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">服 務 時 間</th>
+                  <td>週一至週五：09:00 – 17:30，(六、日與國定假日休息)</td>
+                </tr>
+              </tbody>
+            </table>
+          </address>
+
+        </section>
+
+      </main>
+    </div><!-- /.content-wrapper -->
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-copy">LY AN TRADE CO., LTD. &copy; All Rights Reserved</p>
+        <div class="footer-deco" role="presentation" aria-hidden="true"></div>
+      </div>
+    </footer>
+
+  </div><!-- /.page-wrapper -->
+
+  <!-- 抽屜半透明遮罩 -->
+  <div id="nav-backdrop" class="nav-backdrop" aria-hidden="true"></div>
+
+  <script>
+    /* ========================================
+       漢堡抽屜 — 開關邏輯（手機版）
+    ======================================== */
+    (function() {
+      var toggle   = document.getElementById('nav-drawer-toggle');
+      var closeBtn = document.getElementById('nav-drawer-close');
+      var drawer   = document.getElementById('site-nav');
+      var backdrop = document.getElementById('nav-backdrop');
+      if (!toggle || !drawer) return;
+
+      function openDrawer() {
+        drawer.classList.add('drawer-open');
+        if (backdrop) backdrop.classList.add('active');
+        toggle.innerHTML = '&#x2715;';
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('drawer-open');
+        if (backdrop) backdrop.classList.remove('active');
+        toggle.innerHTML = '&#9776;';
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      toggle.addEventListener('click', function() {
+        if (drawer.classList.contains('drawer-open')) closeDrawer();
+        else openDrawer();
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('drawer-open')) closeDrawer();
+      });
+
+      /* touchend 修正：overflow-y:auto 捲軸偵測會消費 touchstart，
+         導致 click 不觸發。量測垂直位移 < 10px 視為 tap，直接跳頁。 */
+      var _touchStartY = 0;
+      drawer.addEventListener('touchstart', function(e) {
+        _touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      drawer.addEventListener('touchend', function(e) {
+        var link = e.target.closest('a[href]');
+        if (!link) return;
+        var dy = Math.abs(e.changedTouches[0].clientY - _touchStartY);
+        if (dy < 10) {
+          e.preventDefault();
+          window.location.href = link.getAttribute('href');
+        }
+      });
+    }());
+  </script>
+</body>
+</html>

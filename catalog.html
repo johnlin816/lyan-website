@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="利安貿易有限公司商品型錄：鮑魚、乾海參、花膠、干貝、燕窩、南美貝、蒟蒻粉等頂級海乾貨食品進口，產地嚴選直送。">
+  <title>商品型錄 - 利安貿易有限公司 LY AN TRADE CO.,LTD.</title>
+
+  <style>
+    /* =============================================
+       CSS 自訂變數
+    ============================================= */
+    :root {
+      --color-primary:    #713917;
+      --color-primary-dk: #4e2610;
+      --color-gold:       #b8860b;
+      --color-text:       #333333;
+      --color-text-light: #666666;
+      --color-white:      #ffffff;
+      --color-bg-nav:     #f5ede3;
+      --color-card-bg:    #f6f6f6;
+
+      --font-base: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", Arial, sans-serif;
+      --nav-w: 200px;
+      --max-w: 900px;
+    }
+
+    /* =============================================
+       Reset & Base
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-base);
+      color: var(--color-text);
+      background-color: #e8ddd0;
+      min-height: 100vh;
+    }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; }
+    img { display: block; max-width: 100%; height: auto; }
+    ul { list-style: none; }
+
+    /* =============================================
+       Page Wrapper
+    ============================================= */
+    .page-wrapper {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* =============================================
+       Site Header — Style B 米色寬帶雙線金框
+    ============================================= */
+    .site-header {
+      background: #fdf6e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 28px;
+      min-height: 96px;
+      border-top: 4px solid #713917;
+      border-bottom: 4px solid #713917;
+      position: relative;
+    }
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: 8px; left: 0; right: 0;
+      height: 1px; background: #c9a96e;
+    }
+    .site-header::after {
+      content: '';
+      position: absolute;
+      bottom: 8px; left: 0; right: 0;
+      height: 1px; background: #c9a96e;
+    }
+    .header-inner {
+      text-align: center;
+      display: flex; flex-direction: column;
+      gap: 4px; align-items: center;
+    }
+    .site-title-cn {
+      font-size: 20px; font-weight: 700;
+      color: #4e2610; letter-spacing: 0.15em; margin: 0;
+    }
+    .title-dot-row { display: flex; gap: 6px; align-items: center; }
+    .title-dot { width: 4px; height: 4px; border-radius: 50%; background: #b8860b; }
+    .title-line { width: 40px; height: 0.5px; background: #b8860b; }
+    .site-title-en {
+      font-size: 10px; font-weight: 400;
+      color: #8a6440; letter-spacing: 0.2em; margin: 0;
+    }
+    @media (max-width: 540px) { .site-title-cn { font-size: 18px; } }
+
+    /* =============================================
+       Content Grid
+    ============================================= */
+    .content-wrapper {
+      flex: 1;
+      display: grid;
+      grid-template-columns: var(--nav-w) 1fr;
+      grid-template-areas: "nav main";
+      background-color: rgba(255,255,255,.84);
+    }
+
+    /* =============================================
+       Side Navigation — Style B
+    ============================================= */
+    .site-nav {
+      grid-area: nav;
+      padding: 0;
+      border-right: 1px solid #d5b89a;
+      background: #fdf6e8;
+      display: flex; flex-direction: column;
+      align-self: stretch;
+    }
+    .site-nav ul {
+      padding: 1.25rem 0.75rem 0.75rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .site-nav li a {
+      display: flex; align-items: center; justify-content: center;
+      height: 32px; padding: 0 0.5rem;
+      font-size: 0.88rem; font-weight: 600;
+      color: #713917;
+      border: 1px solid #c9a96e; border-radius: 2px;
+      letter-spacing: 0.05em; text-decoration: none;
+      transition: background 0.18s, color 0.18s;
+    }
+    .site-nav li a:hover,
+    .site-nav li a:focus-visible { background: #713917; color: #f5e6c8; }
+    .site-nav::after {
+      content: '';
+      flex: 1; min-height: 20px;
+      border-top: 0.5px solid rgba(201,169,110,.35);
+      background-image:
+        linear-gradient(45deg, rgba(184,134,11,.12) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(184,134,11,.12) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(184,134,11,.12) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(184,134,11,.12) 75%);
+      background-size: 12px 12px;
+      background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+    }
+    .site-nav li a[aria-current="page"] { color: var(--color-primary); font-weight: 700; }
+    .site-nav li a[aria-current="page"]:hover,
+    .site-nav li a[aria-current="page"]:focus-visible { color: #f5e6c8; }
+
+    /* =============================================
+       Main Content
+    ============================================= */
+    .site-main {
+      grid-area: main;
+      padding: .75rem 1.25rem 1.5rem;
+      min-width: 0;
+    }
+
+    /* =============================================
+       Section Heading Bar — Style B
+    ============================================= */
+    .section-heading-bar {
+      display: inline-flex; align-items: center;
+      height: 32px; min-width: 120px;
+      padding: 0 1rem; margin-bottom: .9rem;
+      background: #fdf6e8;
+      border: 1px solid #c9a96e; border-left: 3px solid #713917;
+      border-radius: 0 2px 2px 0;
+    }
+    .section-heading-bar span {
+      font-size: 0.95rem; font-weight: 700;
+      color: #4e2610; letter-spacing: 0.06em;
+    }
+    .section-rule { border: none; border-top: 1px solid var(--color-primary); margin-bottom: 1rem; }
+
+    /* =============================================
+       Catalog 手風琴（嵌入 site-nav）
+    ============================================= */
+    .nav-has-sub { display: flex; flex-direction: column; }
+
+    /* 商品型錄切換按鈕（取代原本的 <a>）*/
+    .nav-cat-toggle-btn {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; height: 32px; padding: 0 0.5rem;
+      font-family: var(--font-base);
+      font-size: 0.88rem; font-weight: 600;
+      color: #713917;
+      background: none;
+      border: 1px solid #c9a96e; border-radius: 2px;
+      letter-spacing: 0.05em; cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+    }
+    .nav-cat-toggle-btn:hover,
+    .nav-cat-toggle-btn[aria-expanded="true"] {
+      background: #713917; color: #f5e6c8;
+    }
+    .nav-cat-toggle-btn[aria-expanded="true"] .nav-cat-icon { color: #e57373; }
+    .nav-cat-icon { font-size: .85rem; color: #c0392b; flex-shrink: 0; }
+
+    /* 手風琴預設隱藏 */
+    .cat-accordion {
+      display: none;
+      margin: .2rem 0 .15rem;
+      border-top: 1px solid rgba(201,169,110,.45);
+    }
+    .cat-accordion.open { display: block; }
+
+    .cat-acc-group { border-bottom: 1px solid rgba(201,169,110,.2); }
+    .cat-acc-group:last-child { border-bottom: none; }
+
+    /* 主分類按鈕 */
+    .cat-acc-btn {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .3rem .5rem;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-base);
+      font-size: .82rem; font-weight: 700;
+      color: #4e2610; text-align: left;
+      letter-spacing: .02em;
+      transition: background .12s;
+    }
+    .cat-acc-btn:hover,
+    .cat-acc-btn.has-open { background: rgba(245,230,200,.55); color: #713917; }
+
+    .cat-acc-icon {
+      font-size: .82rem; color: #c0392b;
+      margin-left: .2rem; flex-shrink: 0; user-select: none;
+    }
+
+    /* 細項列表
+       必須加 .cat-accordion 前綴（specificity 020），
+       才能蓋過 .site-nav ul（specificity 011）的 display:flex */
+    .cat-accordion .cat-acc-list {
+      display: none;
+      padding: 0; gap: 0; flex-direction: unset; /* 覆蓋 .site-nav ul */
+      background: rgba(255,255,255,.55);
+    }
+    .cat-accordion .cat-acc-list.open { display: block; }
+
+    /* 細項按鈕 */
+    .cat-acc-subitem {
+      display: flex; align-items: center;
+      width: 100%; padding: .28rem .5rem .28rem 1rem;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-base);
+      font-size: .78rem; color: #666; text-align: left;
+      transition: color .12s, background .12s;
+    }
+    .cat-acc-subitem::before {
+      content: '•'; margin-right: .3rem;
+      color: #c9a96e; flex-shrink: 0;
+    }
+    .cat-acc-subitem:hover { color: #713917; background: rgba(253,246,232,.9); }
+    .cat-acc-subitem.active {
+      color: #713917; font-weight: 700;
+      background: rgba(253,246,232,.9);
+    }
+    .cat-acc-subitem.active::before { color: #713917; }
+
+    /* 葉節點（無子項）*/
+    .cat-acc-btn.cat-acc-leaf { font-weight: 600; color: #555; }
+    .cat-acc-btn.cat-acc-leaf:hover { color: #713917; background: rgba(245,230,200,.55); }
+    .cat-acc-btn.cat-acc-leaf.active {
+      color: #713917; font-weight: 700; background: rgba(245,230,200,.55);
+    }
+
+    /* =============================================
+       Catalog Category Tiles（歡迎畫面）
+    ============================================= */
+    .catalog-cat-tiles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    /* 子分類磚塊：2 欄置中 */
+    .catalog-subcat-tiles {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 480px;
+    }
+    .catalog-cat-tiles > li {
+      aspect-ratio: 4 / 5;
+    }
+    .catalog-cat-tile {
+      width: 100%;
+      height: 100%;
+      background: #fdf6e8;
+      border: 1px solid #c9a96e;
+      border-radius: 3px;
+      padding: 0 0 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: background .18s, border-color .18s, transform .12s;
+      font-family: var(--font-base);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      overflow: hidden;
+    }
+    .catalog-cat-tile:hover,
+    .catalog-cat-tile:focus-visible {
+      background: #713917;
+      border-color: #713917;
+      transform: translateY(-2px);
+      outline: none;
+    }
+    .catalog-cat-tile:hover .tile-name,
+    .catalog-cat-tile:focus-visible .tile-name,
+    .catalog-cat-tile:hover .tile-hint,
+    .catalog-cat-tile:focus-visible .tile-hint { color: #fdf6e8; }
+    .catalog-cat-tile:hover .tile-img-wrap,
+    .catalog-cat-tile:focus-visible .tile-img-wrap { border-color: rgba(253,246,232,.4); }
+    .tile-img-wrap {
+      flex: 1 1 0;
+      min-height: 0;
+      overflow: hidden;
+      border-bottom: 1px solid #e0d0b8;
+      display: flex; align-items: center; justify-content: center;
+      background: #fff;
+    }
+    .tile-img-wrap img {
+      display: block;
+      width: 100%;
+      height: 100% !important;
+      object-fit: cover;
+      max-height: none !important;
+    }
+    .tile-img-empty {
+      width: 100%;
+      height: 100%;
+      background: #f5ede3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #c9a96e;
+    }
+    .tile-name {
+      font-size: 12px; font-weight: 700;
+      color: #4e2610; letter-spacing: .04em;
+      padding: 0 6px;
+      text-align: center;
+    }
+    .tile-hint {
+      font-size: 9.5px; color: #8a6440;
+      letter-spacing: .02em; line-height: 1.5;
+      padding: 0 6px;
+      text-align: center;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .catalog-tile-note {
+      text-align: center; font-size: 10.5px;
+      color: #aaa; letter-spacing: .04em;
+      margin: 4px 0 0;
+    }
+
+    /* =============================================
+       Catalog Products Area
+    ============================================= */
+    .catalog-products { min-width: 0; }
+
+    .catalog-cat-title {
+      font-size: .84rem; color: #777;
+      margin-bottom: .75rem;
+      padding-bottom: .4rem;
+      border-bottom: 1px solid #e0d5c5;
+    }
+    .catalog-cat-title strong { color: #713917; }
+
+    .catalog-empty {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: #aaa; font-size: .88rem;
+      background: #fdf8f5;
+      border: 1px dashed #d5b89a;
+      border-radius: 4px;
+      line-height: 1.8;
+    }
+
+    /* =============================================
+       Product Grid（全寬）
+    ============================================= */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .9rem;
+      align-items: start; /* 讓 aspect-ratio 生效，不被 stretch 蓋掉 */
+    }
+    /* 每格固定比例，確保全部卡片等大 */
+    .product-grid > li {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+
+    /* =============================================
+       Product Card — Style B
+    ============================================= */
+    .product-card {
+      background: var(--color-white);
+      border-radius: 4px; overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow .2s, transform .15s;
+      border: 1px solid #d5b89a;
+      display: flex; flex-direction: column;
+      width: 100%; height: 100%;
+    }
+    .product-card:hover,
+    .product-card:focus-visible {
+      box-shadow: 0 4px 14px rgba(113,57,23,.22);
+      transform: translateY(-2px); outline: none;
+    }
+    .card-header {
+      background: #713917; padding: 7px 8px;
+      display: flex; align-items: center;
+      justify-content: center; gap: 5px;
+      height: 54px; /* 固定 header 高度，統一所有卡片 */
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .card-header-dot {
+      width: 3px; height: 3px; border-radius: 50%;
+      background: #c9a96e; flex-shrink: 0;
+    }
+    .card-name {
+      font-size: .78rem; font-weight: 600;
+      color: #fdf6e8; text-align: center;
+      line-height: 1.4; letter-spacing: 0.06em;
+    }
+    .card-img-wrap {
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      padding: .5rem;
+      height: 160px; /* 固定高度，讓所有商品圖視覺大小一致 */
+    }
+    .card-img-wrap img {
+      max-width: 100%; max-height: 140px;
+      width: auto; height: auto;
+      object-fit: contain;
+    }
+    .card-footer {
+      height: 3px;
+      background: linear-gradient(90deg, #c9a96e 0%, #b8860b 50%, #c9a96e 100%);
+    }
+
+    /* =============================================
+       Modal
+    ============================================= */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.55);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem; z-index: 1000;
+    }
+    .modal-overlay[hidden] { display: none; }
+    .modal-box {
+      background: var(--color-white);
+      border-radius: 8px; width: 100%; max-width: 560px;
+      max-height: 90vh; overflow-y: auto;
+      position: relative; padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .modal-close {
+      position: absolute; top: .75rem; right: .75rem;
+      width: 32px; height: 32px;
+      border: 1px solid #ccc; border-radius: 50%;
+      background: transparent; font-size: 1.2rem;
+      cursor: pointer; color: var(--color-text-light);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-close:hover { background: #f0e8e0; color: var(--color-primary); }
+    .modal-body { display: flex; gap: 1.25rem; }
+    .modal-img-wrap {
+      flex-shrink: 0; width: 150px;
+      background: #fff;
+      border: 1px solid #d5b89a; border-top: 3px solid #713917;
+      border-radius: 2px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      padding: .5rem;
+      min-height: 150px;
+    }
+    .modal-img-wrap img {
+      width: 100%; height: auto;
+      max-height: 220px;
+      object-fit: contain;
+    }
+    .modal-info { flex: 1; min-width: 0; }
+    .modal-name { font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: .25rem; }
+    .modal-en { font-size: .8rem; color: var(--color-text-light); margin-bottom: .4rem; font-style: italic; }
+    .modal-unit {
+      display: inline-block; font-size: .78rem;
+      color: var(--color-gold); background: #fdf6e3;
+      border: 1px solid #e8d5a3; border-radius: 3px;
+      padding: .15rem .5rem; margin-bottom: .6rem;
+    }
+    .modal-rule { border: none; border-top: 1px solid #e0d0c0; margin-bottom: .75rem; }
+    .modal-desc { font-size: .84rem; line-height: 1.75; color: var(--color-text); white-space: pre-wrap; }
+
+    /* =============================================
+       Footer
+    ============================================= */
+    .site-footer {
+      background-color: rgba(255,255,255,.88);
+      border-top: 1px solid #d5b89a;
+      padding: .75rem 1rem .5rem;
+    }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+    .footer-copy { font-size: .7rem; color: var(--color-text-light); letter-spacing: .04em; }
+    .footer-deco {
+      width: 570px; max-width: 100%; height: 8px;
+      background-image: url('./image/imge/1-1.gif');
+      background-repeat: no-repeat; background-position: center;
+      background-size: 570px 8px;
+    }
+
+    /* =============================================
+       RWD — Tablet ( ≤ 768px )
+    ============================================= */
+    @media (max-width: 768px) {
+      :root { --nav-w: 160px; }
+      .site-nav li a { font-size: .85rem; }
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+      .catalog-cat-tiles { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* =============================================
+       漢堡抽屜 — 桌機預設（隱藏）
+       在 ≤540px media 中啟用
+    ============================================= */
+    .nav-drawer-toggle,
+    .nav-drawer-close { display: none; }
+
+    /* =============================================
+       RWD — Mobile ( ≤ 540px ) — 漢堡抽屜版面
+    ============================================= */
+    @media (max-width: 540px) {
+
+      /* 內容區：移除 nav 欄，商品區佔滿全寬 */
+      .content-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: "main";
+      }
+
+      /* 漢堡按鈕：顯示於 header 右側 */
+      .nav-drawer-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: .85rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px; height: 44px;
+        font-size: 1.4rem;
+        line-height: 1;
+        color: #fff;
+        background: var(--color-primary);
+        border: 2px solid var(--color-primary-dk);
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 2px 5px rgba(0,0,0,.22);
+      }
+      .nav-drawer-toggle:hover,
+      .nav-drawer-toggle:focus-visible {
+        background: var(--color-primary-dk);
+      }
+
+      /* 關閉按鈕：顯示於抽屜頂端右側 */
+      .nav-drawer-close {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        padding: .4rem .1rem .75rem;
+        font-size: 1.2rem;
+        color: var(--color-primary-dk);
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .nav-drawer-close:hover,
+      .nav-drawer-close:focus-visible { color: var(--color-primary); }
+
+      /* Nav → fixed 左側抽屜 */
+      .site-nav {
+        position: fixed;
+        top: 0; left: 0;
+        width: 260px;
+        height: 100%;
+        overflow-y: auto;
+        background: #fdf6e8;
+        border-right: 2px solid #c9a96e;
+        border-bottom: none;
+        padding: .5rem .8rem 2.5rem;
+        transform: translateX(-100%);
+        transition: transform .25s ease;
+        z-index: 200;
+        box-shadow: 3px 0 18px rgba(0, 0, 0, .18);
+      }
+      /* 抽屜打開狀態（JS 加 .drawer-open） */
+      .site-nav.drawer-open { transform: translateX(0); }
+
+      /* 抽屜內：nav 垂直排列 */
+      .site-nav ul {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0;
+        padding: 0 .25rem;
+      }
+      /* 用 #site-nav 提高 specificity，確保覆蓋桌機版 .site-nav li a */
+      #site-nav li a {
+        display: flex !important;
+        align-items: center;
+        height: auto !important;
+        min-height: 44px;
+        padding: .65rem .85rem !important;
+        font-size: .92rem;
+        font-weight: 600;
+        color: var(--color-primary-dk) !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        border-bottom: 1px solid #e2d0b8 !important;
+        letter-spacing: .03em;
+        text-decoration: none;
+        cursor: pointer;
+        /* 防止 overflow-y:auto 的捲軸手勢吃掉 tap 事件 */
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(113,57,23,.15);
+      }
+      #site-nav li a:hover,
+      #site-nav li a:focus-visible {
+        background-color: rgba(113, 57, 23, .08) !important;
+        color: var(--color-primary) !important;
+      }
+
+      /* 其餘版面調整 */
+      .site-main { padding: .75rem; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: .55rem; }
+      .catalog-cat-tiles { grid-template-columns: repeat(2, 1fr); }
+      .section-heading-bar { width: 100%; justify-content: center; }
+      .modal-body { flex-direction: column; align-items: center; }
+      .modal-img-wrap { width: 100%; max-width: 200px; }
+      .footer-deco { background-size: 100% 8px; }
+    }
+
+    /* =============================================
+       RWD — Small mobile ( ≤ 380px )
+    ============================================= */
+    @media (max-width: 380px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
+       Accessibility
+    ============================================= */
+    @media (prefers-reduced-motion: reduce) {
+      .product-card { transition: none; }
+      .catalog-cat-tile { transition: none; }
+    }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+    @media print {
+      body { background: white; }
+      .modal-overlay { display: none; }
+    }
+
+    /* =============================================
+       #static-seo-list — 靜態 SEO 商品清單
+       JS 執行後以 hidden 屬性隱藏；
+       JS 停用時顯示為可讀備用版面。
+    ============================================= */
+    #static-seo-list {
+      padding: 1rem 1.2rem 2rem;
+    }
+    #static-seo-list h2 {
+      font-size: 1.05rem;
+      color: var(--color-primary-dk);
+      border-left: 3px solid var(--color-primary);
+      padding-left: .55rem;
+      margin: 1.4rem 0 .45rem;
+    }
+    #static-seo-list h3 {
+      font-size: .92rem;
+      color: var(--color-primary);
+      margin: .7rem 0 .25rem 1rem;
+    }
+    #static-seo-list ul {
+      margin-left: 1.8rem;
+      list-style: disc;
+    }
+    #static-seo-list li {
+      font-size: .88rem;
+      line-height: 1.85;
+      color: var(--color-text);
+    }
+    #static-seo-list .seo-en {
+      color: var(--color-text-light);
+      font-size: .8rem;
+      margin-left: .35rem;
+    }
+
+    /* 商品頁 / 子分類頁「返回」按鈕 */
+    .catalog-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      margin-bottom: .8rem;
+      padding: .38rem .9rem;
+      font-size: .85rem;
+      font-family: var(--font-base);
+      color: var(--color-primary);
+      background: #fdf6e8;
+      border: 1.5px solid #c9a96e;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+    .catalog-back-btn:hover,
+    .catalog-back-btn:focus-visible {
+      background: rgba(113, 57, 23, .1);
+      color: var(--color-primary-dk);
+    }
+
+    /* 半透明遮罩：JS 加 .active 後顯示 */
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .45);
+      z-index: 199;
+      cursor: pointer;
+    }
+    .nav-backdrop.active { display: block; }
+
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ===== Header ===== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="site-title-cn">利安貿易有限公司</h1>
+        <div class="title-dot-row">
+          <div class="title-line"></div>
+          <div class="title-dot"></div>
+          <div class="title-dot"></div>
+          <div class="title-dot"></div>
+          <div class="title-line"></div>
+        </div>
+        <p class="site-title-en">LY AN TRADE CO., LTD.</p>
+      </div>
+      <!-- 漢堡按鈕：手機版顯示，桌機隱藏 -->
+      <button id="nav-drawer-toggle" class="nav-drawer-toggle"
+              aria-label="開啟選單" aria-expanded="false"
+              aria-controls="site-nav">&#9776;</button>
+    </header>
+
+    <!-- ===== Content Grid ===== -->
+    <div class="content-wrapper">
+
+      <!-- Side Navigation -->
+      <nav class="site-nav" id="site-nav" aria-label="主選單">
+        <!-- 關閉按鈕：手機抽屜內顯示 -->
+        <button class="nav-drawer-close" id="nav-drawer-close" aria-label="關閉選單">&#x2715;</button>
+        <ul>
+          <li><a href="./introduction.html">公司簡介</a></li>
+          <li><a href="./whatsnew.html">最新消息</a></li>
+          <li class="nav-has-sub">
+            <button class="nav-cat-toggle-btn"
+                    aria-expanded="false"
+                    aria-controls="cat-accordion"
+                    aria-current="page">
+              <span>商品型錄</span>
+              <span class="nav-cat-icon" aria-hidden="true">+</span>
+            </button>
+            <!-- 商品分類手風琴（JS 動態建立，預設收起）-->
+            <div class="cat-accordion" id="cat-accordion"></div>
+          </li>
+          <li><a href="./branch.html">客戶服務</a></li>
+          <li><a href="./addressbook.html">聯絡資訊</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="site-main" id="main-content">
+
+        <!-- Section Heading -->
+        <div class="section-heading-bar" style="margin-bottom:.9rem;">
+          <span>商品型錄</span>
+        </div>
+
+        <hr class="section-rule">
+
+        <!-- Products (dynamically rendered) -->
+        <section id="catalog-products" class="catalog-products"
+                 aria-live="polite" aria-label="商品列表">
+
+          <!-- =====================================================
+               靜態 SEO 商品清單（#static-seo-list）
+               ‧ JS 啟用時：第一行 script 以 hidden 屬性隱藏
+               ‧ JS 停用時：顯示為純文字備用版面
+               ‧ Googlebot 第一波抓 HTML 即可索引所有商品名稱
+          ====================================================== -->
+          <div id="static-seo-list">
+
+            <h2>鮑魚</h2>
+
+            <h3>乾鮑魚</h3>
+            <ul>
+              <li>日本皇冠牌吉品乾鮑<span class="seo-en">Dried Abalone, Jyi-piin, Japan</span></li>
+              <li>日本五島明鮑<span class="seo-en">Dried Abalone, Japan</span></li>
+              <li>日本網鮑<span class="seo-en">Dried Abalone, Japan</span></li>
+              <li>澳洲乾鮑<span class="seo-en">Dried Abalone, Australia</span></li>
+              <li>南非乾鮑<span class="seo-en">Dried Abalone, South Africa</span></li>
+              <li>南非吉品乾鮑<span class="seo-en">Dried Abalone, Jyi-piin, South Africa</span></li>
+            </ul>
+
+            <h3>鮑魚罐頭</h3>
+            <ul>
+              <li>墨西哥車輪牌鮑魚罐頭<span class="seo-en">Calmex Brand Wild Abalone, Product of Mexico</span></li>
+              <li>澳洲車輪牌鮑魚罐頭<span class="seo-en">Calmex Canned Abalone, Australia</span></li>
+              <li>澳洲海吉妞牌野生鮑魚罐頭<span class="seo-en">Ex1191 Canned Abalone, Australia</span></li>
+              <li>中國海吉妞牌鮑魚罐頭<span class="seo-en">Canned Abalone, China</span></li>
+              <li>澳洲金星牌鮑魚罐頭<span class="seo-en">Ex816 &amp; Ex1046 Canned Abalone</span></li>
+            </ul>
+
+            <h2>乾海參</h2>
+
+            <h3>日本乾刺參</h3>
+            <ul>
+              <li>日本北海道刺參<span class="seo-en">Dried Sea Cucumber, Hokkaido, Japan</span></li>
+              <li>日本關西產海參<span class="seo-en">Dried Sea Cucumber, West Coast, Japan</span></li>
+            </ul>
+
+            <h3>其他海參</h3>
+            <ul>
+              <li>南美烏參<span class="seo-en">Dried Sea Cucumber, South America</span></li>
+              <li>墨西哥參<span class="seo-en">Dried Sea Cucumber, Mexico</span></li>
+              <li>豬婆參<span class="seo-en">Dried Sea Cucumber</span></li>
+            </ul>
+
+            <h3>冷凍海參</h3>
+            <ul>
+              <li>黃玉參<span class="seo-en">Frozen Sea Cucumber</span></li>
+              <li>南美參<span class="seo-en">Frozen Sea Cucumber, South America</span></li>
+            </ul>
+
+            <h2>花膠</h2>
+            <ul>
+              <li>鰵魚膠<span class="seo-en">Dried Fish Maw, Croaker</span></li>
+              <li>鱸魚膠<span class="seo-en">Dried Fish Maw, Bass</span></li>
+              <li>鱈魚膠<span class="seo-en">Dried Fish Maw, Cod</span></li>
+              <li>花膠筒<span class="seo-en">Dried Fish Maw Tube</span></li>
+            </ul>
+
+            <h2>干貝</h2>
+
+            <h3>乾干貝</h3>
+            <ul>
+              <li>日本北海道干貝<span class="seo-en">Dried Scallops, Hokkaido, Japan</span></li>
+            </ul>
+
+            <h3>冷凍干貝</h3>
+            <ul>
+              <li>日本北海道冷凍干貝（生食用）<span class="seo-en">Frozen Scallops, Hokkaido, Japan</span></li>
+            </ul>
+
+            <h2>燕窩</h2>
+            <ul>
+              <li>野生洞燕<span class="seo-en">Wild Cave Swiftlet Nest</span></li>
+              <li>4A燕盞<span class="seo-en">Bird's Nest Grade 4A</span></li>
+              <li>3A燕盞<span class="seo-en">Bird's Nest Grade 3A</span></li>
+              <li>2A燕盞<span class="seo-en">Bird's Nest Grade 2A</span></li>
+              <li>三角燕盞<span class="seo-en">Triangle Bird's Nest</span></li>
+              <li>小碎燕<span class="seo-en">Bird's Nest Broken</span></li>
+              <li>乾燕磚<span class="seo-en">Dried Bird's Nest Brick</span></li>
+            </ul>
+
+            <h2>南美貝</h2>
+
+            <h3>南美貝罐頭</h3>
+            <ul>
+              <li>智利樂可思貝罐頭（Locos）<span class="seo-en">Canned Locos, Product of Chile</span></li>
+              <li>秘魯南美貝罐頭（Locos）<span class="seo-en">Canned Locos, Product of Peru</span></li>
+            </ul>
+
+            <h3>冷凍南美貝</h3>
+            <ul>
+              <li>日本飯岡屋調味貝（大）<span class="seo-en">Iiokayas Seasoned Scallops, Japan</span></li>
+            </ul>
+
+            <h2>其他產品</h2>
+            <ul>
+              <li>墨西哥車輪牌螺肉罐頭<span class="seo-en">Cedmex Brand Top Shell, Product of Mexico</span></li>
+              <li>日本北寄貝罐頭<span class="seo-en">Canned Clam, Hokkaido, Japan</span></li>
+              <li>乾螺頭<span class="seo-en">Dried Conch</span></li>
+            </ul>
+
+            <h2>蒟蒻粉</h2>
+            <ul>
+              <li>日本產白雪牌蒟蒻粉<span class="seo-en">Konjac Powder, Made in Japan</span></li>
+              <li>日本監製中國產白雪牌蒟蒻粉<span class="seo-en">Konjac Powder, Made in China (Japanese Supervision)</span></li>
+            </ul>
+
+          </div><!-- /#static-seo-list -->
+
+        </section>
+
+      </main>
+    </div><!-- /.content-wrapper -->
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-copy">LY AN TRADE CO., LTD. &copy; All Rights Reserved</p>
+        <div class="footer-deco" role="presentation" aria-hidden="true"></div>
+      </div>
+    </footer>
+
+  </div><!-- /.page-wrapper -->
+
+  <!-- ===== Product Modal ===== -->
+  <!-- 抽屜半透明遮罩 -->
+  <div id="nav-backdrop" class="nav-backdrop" aria-hidden="true"></div>
+
+  <div id="product-modal" class="modal-overlay" role="dialog" aria-modal="true"
+       aria-labelledby="modal-name" hidden>
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close-btn" aria-label="關閉">&#x2715;</button>
+      <div class="modal-body">
+        <div class="modal-img-wrap">
+          <img id="modal-img" src="" alt="" width="140">
+        </div>
+        <div class="modal-info">
+          <h2 class="modal-name" id="modal-name"></h2>
+          <p class="modal-en"  id="modal-en"></p>
+          <span class="modal-unit" id="modal-unit"></span>
+          <hr class="modal-rule">
+          <p class="modal-desc" id="modal-desc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+
+    /* JS 啟用時立即隱藏靜態 SEO 清單，改由動態型錄接管 */
+    document.getElementById('static-seo-list').hidden = true;
+
+    /* ========================================
+       商品資料庫
+    ======================================== */
+    const CATALOG = {
+
+      'abalone-dry': {
+        title: '乾鮑魚',
+        products: [
+          {
+            name: '日本皇冠牌吉品乾鮑',
+            en: 'Dried Abalone, Jyi-piin, Japan',
+            unit: '每台斤 / 頭數（現貨 15–48頭）',
+            img: './upload/vnk4lbd3r0.jpg',
+            desc: '吉品乾鮑又稱吉品鮑或是吉濱鮑，其產地來自於日本本州岩手縣的吉濱地區，由於吉濱灣沿岸氣候十分適合鮑魚生長，為日本乾鮑最大產區。\n\n採捕方式為潛水鉤採，鮑身較為完整，且鮑身比較有彈性，鮑魚味則十分濃郁。\n\n本公司特別於日本的乾鮑工廠直接引進吉品乾鮑，物美價廉，歡迎選購。'
+          },
+          {
+            name: '日本五島明鮑',
+            en: 'Dried Abalone, Japan',
+            unit: '每台斤 / 頭數',
+            img: './upload/61lfdychr0.jpg',
+            desc: '五島明鮑，又稱五島鮑，來自日本長崎縣群島。由於近年來全球氣候的變化，使的產量日漸稀少。每年產的頭數大約為5頭至16頭之間，其食療進補的效果奇佳。\n\n通常將五島明鮑切片後與冬蟲夏草一同燉煮，對於眼睛與身體虛弱等症狀有顯著的效果。\n\n本公司特別於日本的乾鮑工廠直接引進五島明鮑，物美價廉，歡迎選購。'
+          },
+          {
+            name: '日本網鮑',
+            en: 'Dried Abalone, Japan',
+            unit: '每台斤 / 頭數（5–15頭）',
+            img: './upload/btq7w2clg0.jpg',
+            desc: '網鮑 AMIDORI 乃日文「網取」之譯音。網鮑鮑身較大，必須使用漁網及鐵撬才能捕取，故而得名。\n\n網鮑底部闊大而平、肉質純厚而溏心，其滋味香濃豐郁，極受饕客喜愛。香港名廚楊貫一亦是從日本採購網鮑為烹煮之食材。常言道「千金難買雙頭鮑」。\n\n本公司特別於日本的乾鮑工廠直接引進網鮑，物美價廉，歡迎選購。'
+          },
+          {
+            name: '澳洲乾鮑',
+            en: 'Dried Abalone, Australia',
+            unit: '每台斤 / 頭數',
+            img: './upload/11biq2cp00.jpg',
+            desc: '本公司獨家代理許榕糖心鮑，歡迎來電洽詢。'
+          },
+          {
+            name: '南非乾鮑',
+            en: 'Dried Abalone, South Africa',
+            unit: '每台斤 / 頭數',
+            img: './upload/2shfp0cer0.jpg',
+            desc: '來自南非的頂級乾鮑，歡迎來電洽詢。'
+          },
+          {
+            name: '南非吉品乾鮑',
+            en: 'Dried Abalone, Jyi-piin, South Africa',
+            unit: '每台斤 / 頭數',
+            img: './upload/1778743616943_rot.png',
+            desc: '歡迎來電洽詢。'
+          }
+        ]
+      },
+
+      'abalone-can': {
+        title: '鮑魚罐頭',
+        products: [
+          {
+            name: '墨西哥車輪牌鮑魚罐頭',
+            en: 'Calmex Brand Wild Abalone, Product of Mexico',
+            unit: '每箱24罐',
+            img: './upload/u6imv37bx0.jpg',
+            desc: '墨西哥車輪鮑捕捉的海域位於墨西哥的下加利福尼亞海灣（Baja California）沿岸，此海域的水質特別清澈，鮮少被外界人為的破壞，再加上洋流交界，海水溫度特別適合鮑魚生長的天然環境，使墨西哥被世界公認為最好的鮑魚產地，全球最著名的車輪牌（Calmex brand）鮑魚，正是盛產於此海灣一帶。'
+          },
+          {
+            name: '澳洲車輪牌鮑魚罐頭',
+            en: 'Calmex Canned Abalone, Australia',
+            unit: '每箱24罐',
+            img: './upload/1778213450757.png',
+            desc: '在行銷墨西哥車輪牌鮑魚罐頭後，美國海洋公園公司推出於澳洲產的車輪鮑魚罐頭。秉持良好的品質與行銷，銷售於整個華人罐頭鮑魚市場。'
+          },
+          {
+            name: '澳洲海吉妞牌野生鮑魚罐頭',
+            en: 'Ex1191 Canned Abalone, Australia',
+            unit: '每箱24罐',
+            img: './upload/1778226575478.png',
+            desc: '來自澳洲南海岸的野生鮑魚，當地的海洋溫度、氣候相當適合鮑魚的生長。本公司獨家代理：澳洲漁人合作社工廠代號 1191 所出品的頂級澳洲野生鮑魚罐頭，供應給台灣頂級飯店與餐廳。'
+          },
+          {
+            name: '中國海吉妞牌鮑魚罐頭',
+            en: 'Canned Abalone, China',
+            unit: '每箱24罐',
+            img: './upload/1778213547867.png',
+            desc: '本公司獨家代理海吉妞牌產品，由中國福建優質養殖鮑魚的原料製成，供應給台灣知名飯店與餐廳。'
+          },
+          {
+            name: '澳洲金星牌鮑魚罐頭',
+            en: 'Ex816 & Ex1046 Canned Abalone',
+            unit: '每箱24罐',
+            img: './upload/1778212799559.png',
+            desc: '來自澳洲南岸塔斯馬尼亞島的鮑魚，由於當地的海洋、氣候相當適合鮑魚的生長，所以本公司與塔斯馬尼亞公司（工廠代號 Ex816, Ex1046）合作，引進最高品質的產品 海吉妞牌，供應給台灣頂級飯店與餐廳。'
+          },
+        ]
+      },
+
+      'seacucumber-jp': {
+        title: '日本乾刺參',
+        products: [
+          {
+            name: '日本北海道刺參',
+            en: 'Dried Sea Cucumber, Hokkaido, Japan',
+            unit: '每箱20公斤（現貨：35隻/台斤、46隻/台斤）',
+            img: './upload/kudntncwv0.jpg',
+            desc: '來自北海道最頂級的野生刺參，又稱遼參或關東參。由於全球暖化及氣候因素，導致近年來產量逐年減少。\n\n本公司引進北海道漁聯協會生產之特級刺參，歡迎來電洽詢。'
+          },
+          {
+            name: '日本關西產海參',
+            en: 'Dried Sea Cucumber, West Coast, Japan',
+            unit: '每箱20公斤',
+            img: './upload/ucyxfod0w0.jpg',
+            desc: '來自日本關西地區的短刺參，歡迎來電洽詢。'
+          }
+        ]
+      },
+
+      'seacucumber-other': {
+        title: '其他海參',
+        products: [
+          {
+            name: '南美烏參',
+            en: 'Dried Sea Cucumber, South America',
+            unit: '每箱20公斤',
+            img: './upload/1778747900024.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '墨西哥參',
+            en: 'Dried Sea Cucumber, Mexico',
+            unit: '每箱20公斤',
+            img: './upload/1778747693747.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '豬婆參',
+            en: 'Dried Sea Cucumber',
+            unit: '每箱20公斤',
+            img: './upload/1778747231541.png',
+            desc: '歡迎來電洽詢。'
+          }
+        ]
+      },
+
+      'seacucumber-frozen': {
+        title: '冷凍海參',
+        products: [
+          {
+            name: '黃玉參',
+            en: 'Frozen Sea Cucumber',
+            unit: '每箱20公斤',
+            img: './upload/1778737230001.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '南美參',
+            en: 'Frozen Sea Cucumber, South America',
+            unit: '每箱20公斤',
+            img: './upload/1778748849049.png',
+            desc: '歡迎來電洽詢。'
+          }
+        ]
+      },
+
+      'maw': {
+        title: '花膠',
+        products: [
+          {
+            name: '鰵魚膠',
+            en: 'Dried Fish Maw, Croaker',
+            unit: '每台斤',
+            img: './upload/172337.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '鱸魚膠',
+            en: 'Dried Fish Maw, Bass',
+            unit: '每台斤',
+            img: './upload/1778492715602.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '鱈魚膠',
+            en: 'Dried Fish Maw, Cod',
+            unit: '每台斤',
+            img: './upload/1778230671939.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '花膠筒',
+            en: 'Dried Fish Maw Tube',
+            unit: '每台斤',
+            img: './upload/1778745000204.png',
+            desc: '歡迎來電洽詢。'
+          }
+        ]
+      },
+
+      'scallop-dry': {
+        title: '乾干貝',
+        products: [
+          {
+            name: '日本北海道干貝',
+            en: 'Dried Scallops, Hokkaido, Japan',
+            unit: '每箱20公斤，分 L、M、S、B 四種規格',
+            img: './upload/he5cdt6tj0.jpg',
+            desc: '北海道地理環境優良，水質特別清澈，出產的干貝具有新鮮、芳香、美味等特色，其生產佔世界市場首位，市佔率達八成以上。\n\n干貝又稱江瑤柱，性平味甘鹹，蛋白質豐富，且含有少量的碘，有滋陰、生津、調降血壓、強健體力、改善腸胃消化不良或腹脹不適等功效。干貝食味鮮甜，軟滑而且容易消化，可作主菜或配料，煲粥飯湯加入少許，份外鮮甜味美。\n\n本公司與日本北海道最大漁聯組織長年合作，引進最優質的乾干貝至台灣，歡迎來電洽詢。'
+          }
+        ]
+      },
+
+      'scallop-frozen': {
+        title: '冷凍干貝',
+        products: [
+          {
+            name: '日本北海道冷凍干貝（生食用）',
+            en: 'Frozen Scallops, Hokkaido, Japan',
+            unit: '每箱10盒，每盒1 kg，現貨尺寸：L、M、S、2S',
+            img: './upload/7qz9ar0mv0.jpg',
+            desc: '外箱包裝 10盒入，每盒1 kg冷凍帆立干貝。'
+          }
+        ]
+      },
+
+      'swallow': {
+        title: '燕窩',
+        products: [
+          {
+            name: '野生洞燕',
+            en: 'Wild Cave Swiftlet Nest',
+            unit: '每台斤',
+            img: './upload/1779095616387.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '4A燕盞',
+            en: 'Bird\'s Nest Grade 4A',
+            unit: '每台斤',
+            img: './upload/1778834624544.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '3A燕盞',
+            en: 'Bird\'s Nest Grade 3A',
+            unit: '每台斤',
+            img: './upload/3A.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '2A燕盞',
+            en: 'Bird\'s Nest Grade 2A',
+            unit: '每台斤',
+            img: './upload/2A.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '三角燕盞',
+            en: 'Triangle Bird\'s Nest',
+            unit: '每台斤',
+            img: './upload/1778838288037.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '小碎燕',
+            en: 'Bird\'s Nest Broken',
+            unit: '每台斤',
+            img: './upload/小碎燕.png',
+            desc: '歡迎來電洽詢。'
+          },
+          {
+            name: '乾燕磚',
+            en: 'Dried Bird\'s Nest Brick',
+            unit: '每台斤',
+            img: './upload/1778836933599.png',
+            desc: '歡迎來電洽詢。'
+          }
+        ]
+      },
+
+      'locos-can': {
+        title: '南美貝罐頭',
+        products: [
+          {
+            name: '智利樂可思貝罐頭（Locos）',
+            en: 'Canned Locos, Product of Chile',
+            unit: '每箱24罐',
+            img: './upload/DBAAE2-A80978068000_52c294627ac13.jpg',
+            desc: '來自智利海珍珠公司的產品，該公司為智利最大的鮑魚與南美貝、螺肉市場領導廠商。'
+          },
+          {
+            name: '秘魯南美貝罐頭（Locos）',
+            en: 'Canned Locos, Product of Peru',
+            unit: '每箱24罐',
+            img: './upload/1778212644130_crop.png',
+            desc: '來自秘魯野生優質的南美貝製成的罐頭產品。'
+          },
+        ]
+      },
+
+      'locos-frozen': {
+        title: '冷凍南美貝',
+        products: [
+          {
+            name: '日本飯岡屋調味貝（大）',
+            en: 'Iiokayas Seasoned Scallops, Japan',
+            unit: '每件24包，每包3或4粒裝',
+            img: './upload/dopr1q7hx0.jpg',
+            desc: '日本知名品牌飯岡屋，日本旅遊團的最愛，年節送禮的最佳選擇。解凍後可直接食用。'
+          }
+        ]
+      },
+
+      'others': {
+        title: '其他產品',
+        products: [
+          {
+            name: '墨西哥車輪牌螺肉罐頭',
+            en: 'Cedmex Brand Top Shell, Product of Mexico',
+            unit: '每箱24罐',
+            img: './upload/pa3d7ar4t0.jpg',
+            desc: '墨西哥南部的下加利福尼亞海灣（Baja California）沿岸適於漁業發展，此海域的水質特別清澈，鮮少被外界人為的破壞，再加上洋流交界，海水溫度特別適合鮑魚、龍蝦與螺肉生長的天然環境。世界聞名的車輪牌鮑魚便是於此等優質的海域所產。'
+          },
+          {
+            name: '日本北寄貝罐頭',
+            en: 'Canned Clam, Hokkaido, Japan',
+            unit: '每箱24罐',
+            img: './upload/eaw15m0cy0.jpg',
+            desc: '由日本所產北寄貝製作成的罐頭，肉質鮮美，湯頭甘甜，是許多宴席中沙拉與煮湯的好伙伴。'
+          },
+          {
+            name: '乾螺頭',
+            en: 'Dried Conch',
+            unit: '每台斤',
+            img: './upload/18344.jpg',
+            desc: '歡迎來電洽詢。'
+          }
+        ]
+      },
+
+      'konjac': {
+        title: '蒟蒻粉',
+        products: [
+          {
+            name: '日本產白雪牌蒟蒻粉',
+            en: 'Konjac Powder, Made in Japan',
+            unit: '一箱20公斤',
+            img: './upload/dj6bs90xf0.jpg',
+            desc: '頂級日本產白雪牌蒟蒻粉，是許多素食工廠與餐廳的最佳夥伴。'
+          },
+          {
+            name: '日本監製中國產白雪牌蒟蒻粉',
+            en: 'Konjac Powder, Made in China (Japanese Supervision)',
+            unit: '一箱20公斤',
+            img: './upload/dj6bs90xf0.jpg',
+            desc: '日本監製大陸產白雪牌蒟蒻粉，物美價廉，是許多素食工廠與餐廳的最佳夥伴。'
+          }
+        ]
+      }
+    };
+
+    /* ========================================
+       分類樹狀結構
+    ======================================== */
+    const CATEGORIES = [
+      { id: 'abalone',    label: '鮑魚',   img: './upload/u6imv37bx0.jpg', children: [
+        { id: 'abalone-dry', label: '乾鮑魚' },
+        { id: 'abalone-can', label: '鮑魚罐頭' }
+      ]},
+      { id: 'seacucumber', label: '乾海參', img: './upload/kudntncwv0.jpg', children: [
+        { id: 'seacucumber-jp',     label: '日本乾刺參' },
+        { id: 'seacucumber-other',  label: '其他海參' },
+        { id: 'seacucumber-frozen', label: '冷凍海參' }
+      ]},
+      { id: 'maw',    label: '花膠',   img: './upload/172337.png' },
+      { id: 'scallop', label: '干貝',  img: './upload/he5cdt6tj0.jpg', children: [
+        { id: 'scallop-dry',    label: '乾干貝' },
+        { id: 'scallop-frozen', label: '冷凍干貝' }
+      ]},
+      { id: 'swallow', label: '燕窩',  img: './upload/1778834624544.png' },
+      { id: 'locos',  label: '南美貝', img: './upload/DBAAE2-A80978068000_52c294627ac13.jpg', children: [
+        { id: 'locos-can',    label: '南美貝罐頭' },
+        { id: 'locos-frozen', label: '冷凍南美貝' }
+      ]},
+      { id: 'others',  label: '其他產品', img: './upload/pa3d7ar4t0.jpg' },
+      { id: 'konjac',  label: '蒟蒻粉',   img: './upload/dj6bs90xf0.jpg' }
+    ];
+
+    /* ========================================
+       手風琴建構（嵌入 site-nav）
+    ======================================== */
+    const accNav    = document.getElementById('cat-accordion');
+    const mainToggle = document.querySelector('.nav-cat-toggle-btn');
+    let currentCatId = null;
+
+    /* 點「商品型錄」切換整個手風琴 */
+    mainToggle.addEventListener('click', function() {
+      const opening = !accNav.classList.contains('open');
+      accNav.classList.toggle('open');
+      mainToggle.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      mainToggle.querySelector('.nav-cat-icon').textContent = opening ? '−' : '+';
+      if (!opening) {
+        currentCatId = null;
+        accNav.querySelectorAll('.cat-acc-subitem, .cat-acc-leaf').forEach(function(el) {
+          el.classList.remove('active');
+        });
+        showWelcomeTiles();
+      }
+    });
+
+    function buildAccordion() {
+      CATEGORIES.forEach(function(cat) {
+        const group = document.createElement('div');
+        group.className = 'cat-acc-group';
+
+        if (cat.children && cat.children.length) {
+          const btn = document.createElement('button');
+          btn.className = 'cat-acc-btn';
+          btn.setAttribute('aria-expanded', 'false');
+          btn.dataset.group = cat.id;
+          btn.innerHTML =
+            '<span>' + cat.label + '</span>' +
+            '<span class="cat-acc-icon" aria-hidden="true">+</span>';
+
+          const list = document.createElement('ul');
+          list.className = 'cat-acc-list';
+          list.id = 'cat-list-' + cat.id;
+
+          cat.children.forEach(function(sub) {
+            const li     = document.createElement('li');
+            const subBtn = document.createElement('button');
+            subBtn.className = 'cat-acc-subitem';
+            subBtn.dataset.cat = sub.id;
+            subBtn.textContent = sub.label;
+            li.appendChild(subBtn);
+            list.appendChild(li);
+          });
+
+          btn.addEventListener('click', function() {
+            toggleGroup(cat.id, btn, list);
+            /* 展開或收合，右側一律顯示子分類磚塊（乾鮑魚 / 鮑魚罐頭…） */
+            showSubcategoryTiles(cat);
+          });
+          list.addEventListener('click', function(e) {
+            const subBtn = e.target.closest('.cat-acc-subitem');
+            if (subBtn) selectCategory(subBtn.dataset.cat);
+          });
+
+          group.appendChild(btn);
+          group.appendChild(list);
+
+        } else {
+          const btn = document.createElement('button');
+          btn.className = 'cat-acc-btn cat-acc-leaf';
+          btn.dataset.cat = cat.id;
+          btn.textContent = cat.label;
+          btn.addEventListener('click', function() {
+            selectCategory(cat.id);
+          });
+          group.appendChild(btn);
+        }
+
+        accNav.appendChild(group);
+      });
+    }
+
+    function toggleGroup(groupId, btn, list) {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      btn.querySelector('.cat-acc-icon').textContent = isOpen ? '+' : '−';
+      btn.classList.toggle('has-open', !isOpen);
+      list.classList.toggle('open', !isOpen);
+    }
+
+    /* ========================================
+       選擇分類 & 渲染商品
+    ======================================== */
+    function selectCategory(catId) {
+      currentCatId = catId;
+
+      accNav.querySelectorAll('.cat-acc-subitem, .cat-acc-leaf').forEach(function(el) {
+        el.classList.remove('active');
+      });
+
+      const target = accNav.querySelector('[data-cat="' + catId + '"]');
+      if (target) target.classList.add('active');
+
+      renderProducts(catId);
+    }
+
+    /* 找出 catId 的父分類（有 children 的 CATEGORY 物件） */
+    function getParentCategory(catId) {
+      for (var i = 0; i < CATEGORIES.length; i++) {
+        var c = CATEGORIES[i];
+        if (c.children && c.children.some(function(s) { return s.id === catId; })) {
+          return c;
+        }
+      }
+      return null;
+    }
+
+    function renderProducts(catId) {
+      const area = document.getElementById('catalog-products');
+      const cat  = CATALOG[catId];
+      if (!cat) return;
+
+      /* 返回按鈕：有父分類 → 返回子分類磚塊；否則 → 返回全部分類 */
+      const parent = getParentCategory(catId);
+      const backLabel = parent ? ('← ' + parent.label) : '← 全部分類';
+      const backData  = parent ? ('data-back-parent="' + parent.id + '"') : 'data-back-welcome="1"';
+      let html = '<button class="catalog-back-btn" ' + backData + '>' + backLabel + '</button>' +
+                 '<p class="catalog-cat-title">商品分類：<strong>' + cat.title + '</strong></p>';
+
+      if (!cat.products || cat.products.length === 0) {
+        html += '<div class="catalog-empty">此分類商品資訊更新中，敬請期待。<br>如需查詢，歡迎來電洽詢。</div>';
+      } else {
+        html += '<ul class="product-grid" role="list">';
+        cat.products.forEach(function(p, idx) {
+          html +=
+            '<li>' +
+            '<article class="product-card" tabindex="0" role="button"' +
+            ' aria-label="' + p.name + ' 詳細資訊"' +
+            ' data-cat="' + catId + '" data-idx="' + idx + '">' +
+            '<div class="card-header">' +
+            '<div class="card-header-dot"></div>' +
+            '<p class="card-name">' + p.name + '</p>' +
+            '<div class="card-header-dot"></div>' +
+            '</div>' +
+            '<div class="card-img-wrap">' +
+            '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" width="150" height="150">' +
+            '</div>' +
+            '<div class="card-footer"></div>' +
+            '</article>' +
+            '</li>';
+        });
+        html += '</ul>';
+      }
+
+      area.innerHTML = html;
+    }
+
+    /* ========================================
+       點分類磚塊：開手風琴 + 選分類
+    ======================================== */
+    function selectCategoryFromTile(cat) {
+      if (!accNav.classList.contains('open')) {
+        accNav.classList.add('open');
+        mainToggle.setAttribute('aria-expanded', 'true');
+        mainToggle.querySelector('.nav-cat-icon').textContent = '−';
+      }
+      if (cat.children && cat.children.length) {
+        const groupBtn = accNav.querySelector('[data-group="' + cat.id + '"]');
+        if (groupBtn && groupBtn.getAttribute('aria-expanded') !== 'true') {
+          const list = document.getElementById('cat-list-' + cat.id);
+          if (list) toggleGroup(cat.id, groupBtn, list);
+        }
+        selectCategory(cat.children[0].id);
+      } else {
+        selectCategory(cat.id);
+      }
+    }
+
+    /* ========================================
+       初始化：建立手風琴，顯示分類磚塊
+    ======================================== */
+    buildAccordion();
+
+    function showWelcomeTiles() {
+      const area = document.getElementById('catalog-products');
+      let html = '<ul class="catalog-cat-tiles" role="list" aria-label="商品分類總覽">';
+      CATEGORIES.forEach(function(cat) {
+        const hint = (cat.children && cat.children.length)
+          ? cat.children.map(function(c) { return c.label; }).join(' / ')
+          : '';
+        html +=
+          '<li>' +
+          '<button class="catalog-cat-tile" data-tile-cat="' + cat.id + '"' +
+          ' aria-label="' + cat.label + ' 分類">' +
+          '<div class="tile-img-wrap">' +
+          (cat.img
+            ? '<img src="' + cat.img + '" alt="' + cat.label + '" loading="lazy">'
+            : '<div class="tile-img-empty">' + cat.label.charAt(0) + '</div>') +
+          '</div>' +
+          '<span class="tile-name">' + cat.label + '</span>' +
+          (hint ? '<span class="tile-hint">' + hint + '</span>' : '') +
+          '</button>' +
+          '</li>';
+      });
+      html += '</ul>';
+      html += '<p class="catalog-tile-note">點選分類查看商品</p>';
+      area.innerHTML = html;
+    }
+    showWelcomeTiles();
+
+    /* ========================================
+       子分類磚塊（有 children 的分類展開時）
+    ======================================== */
+    function showSubcategoryTiles(parentCat) {
+      const area = document.getElementById('catalog-products');
+      let html = '<button class="catalog-back-btn" data-back-welcome="1">← 全部分類</button>' +
+                 '<p class="catalog-cat-title">分類：<strong>' + parentCat.label + '</strong></p>';
+      html += '<ul class="catalog-cat-tiles catalog-subcat-tiles" role="list" aria-label="' + parentCat.label + ' 子分類">';
+      parentCat.children.forEach(function(sub) {
+        const catData  = CATALOG[sub.id];
+        const firstImg = (catData && catData.products && catData.products.length)
+          ? catData.products[0].img : '';
+        html +=
+          '<li>' +
+          '<button class="catalog-cat-tile" data-tile-subcat="' + sub.id + '"' +
+          ' aria-label="' + sub.label + '">' +
+          '<div class="tile-img-wrap">' +
+          (firstImg
+            ? '<img src="' + firstImg + '" alt="' + sub.label + '" loading="lazy">'
+            : '<div class="tile-img-empty">' + sub.label.charAt(0) + '</div>') +
+          '</div>' +
+          '<span class="tile-name">' + sub.label + '</span>' +
+          '</button>' +
+          '</li>';
+      });
+      html += '</ul>';
+      area.innerHTML = html;
+    }
+
+    /* ========================================
+       商品 Modal（事件委派）
+    ======================================== */
+    const modal      = document.getElementById('product-modal');
+    const modalClose = document.getElementById('modal-close-btn');
+    let lastFocused  = null;
+
+    document.getElementById('catalog-products').addEventListener('click', function(e) {
+      /* 返回按鈕 */
+      const backBtn = e.target.closest('.catalog-back-btn');
+      if (backBtn) {
+        if (backBtn.dataset.backWelcome) {
+          showWelcomeTiles();
+        } else if (backBtn.dataset.backParent) {
+          const parentCat = CATEGORIES.find(function(c) { return c.id === backBtn.dataset.backParent; });
+          if (parentCat) showSubcategoryTiles(parentCat);
+        }
+        return;
+      }
+
+      const tile = e.target.closest('.catalog-cat-tile');
+      if (tile) {
+        /* 子分類磚塊（展開後的細項） */
+        if (tile.dataset.tileSubcat) {
+          selectCategory(tile.dataset.tileSubcat);
+          return;
+        }
+        /* 主分類磚塊（歡迎畫面） */
+        const catId = tile.dataset.tileCat;
+        const cat = CATEGORIES.find(function(c) { return c.id === catId; });
+        if (cat) selectCategoryFromTile(cat);
+        return;
+      }
+      const card = e.target.closest('.product-card');
+      if (card) openModal(card);
+    });
+
+    document.getElementById('catalog-products').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const tile = e.target.closest('.catalog-cat-tile');
+        if (tile) {
+          e.preventDefault();
+          if (tile.dataset.tileSubcat) {
+            selectCategory(tile.dataset.tileSubcat);
+            return;
+          }
+          const catId = tile.dataset.tileCat;
+          const cat = CATEGORIES.find(function(c) { return c.id === catId; });
+          if (cat) selectCategoryFromTile(cat);
+          return;
+        }
+        const card = e.target.closest('.product-card');
+        if (card) { e.preventDefault(); openModal(card); }
+      }
+    });
+
+    function openModal(card) {
+      const catId = card.dataset.cat;
+      const idx   = parseInt(card.dataset.idx, 10);
+      const p     = CATALOG[catId] && CATALOG[catId].products[idx];
+      if (!p) return;
+
+      lastFocused = card;
+      document.getElementById('modal-img').src    = p.img;
+      document.getElementById('modal-img').alt    = p.name;
+      document.getElementById('modal-name').textContent = p.name;
+      document.getElementById('modal-en').textContent   = p.en;
+      document.getElementById('modal-unit').textContent = p.unit;
+      document.getElementById('modal-desc').textContent = p.desc;
+      modal.hidden = false;
+      modalClose.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      if (lastFocused) lastFocused.focus();
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    /* ========================================
+       漢堡抽屜 — 開關邏輯（手機版）精簡版
+       原則：<a> 連結完全不碰，只操作 CSS class
+    ======================================== */
+    (function() {
+      var toggle   = document.getElementById('nav-drawer-toggle');
+      var closeBtn = document.getElementById('nav-drawer-close');
+      var drawer   = document.getElementById('site-nav');
+      var backdrop = document.getElementById('nav-backdrop');
+      if (!toggle || !drawer) return;
+
+      function openDrawer() {
+        drawer.classList.add('drawer-open');
+        if (backdrop) backdrop.classList.add('active');
+        toggle.innerHTML = '&#x2715;';
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('drawer-open');
+        if (backdrop) backdrop.classList.remove('active');
+        toggle.innerHTML = '&#9776;';
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      /* 漢堡按鈕：開 / 關切換 */
+      toggle.addEventListener('click', function() {
+        if (drawer.classList.contains('drawer-open')) closeDrawer();
+        else openDrawer();
+      });
+
+      /* 關閉按鈕 & 遮罩 */
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+      /* Esc 鍵關閉 */
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('drawer-open')) closeDrawer();
+      });
+
+      /* 子分類 / 葉分類選定後延遲關閉（讓使用者看到 active 狀態） */
+      drawer.addEventListener('click', function(e) {
+        if (e.target.closest('.cat-acc-subitem') || e.target.closest('.cat-acc-leaf')) {
+          setTimeout(closeDrawer, 200);
+        }
+      });
+
+      /* ── 手機觸控修正：touchend 直接攔截 <a> 跳頁 ──
+         原因：overflow-y:auto 的捲軸偵測會消費 touchstart，
+         導致 click 事件不觸發，href / window.location 均無效。
+         解決：在 touchend 量測垂直位移，位移 < 10px 視為 tap，直接跳頁。 */
+      var _touchStartY = 0;
+      drawer.addEventListener('touchstart', function(e) {
+        _touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      drawer.addEventListener('touchend', function(e) {
+        var link = e.target.closest('a[href]');
+        if (!link) return;
+        var dy = Math.abs(e.changedTouches[0].clientY - _touchStartY);
+        if (dy < 10) {
+          e.preventDefault(); /* 阻止後續 ghost click 重複觸發 */
+          window.location.href = link.getAttribute('href');
+        }
+      });
+    }());
+  </script>
+
+</body>
+</html>
