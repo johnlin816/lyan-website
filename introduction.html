@@ -394,17 +394,18 @@
         grid-template-areas: "main";
       }
 
-      /* G2 漢堡按鈕 */
+      /* G1 漢堡按鈕 — 直向米色底 */
       .nav-drawer-toggle {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 7px;
+        gap: 5px;
         position: absolute;
         right: .85rem;
         top: 50%;
         transform: translateY(-50%);
-        height: 38px;
-        padding: 0 10px 0 8px;
+        width: 46px;
+        padding: 7px 8px 6px;
         background: #fdf6e8;
         border: 2px solid #713917;
         border-radius: 4px;
@@ -417,14 +418,16 @@
       .tgl-row  { display: flex; align-items: center; gap: 4px; }
       .tgl-dot  { width: 4px; height: 4px; border-radius: 50%; background: #b8860b; flex-shrink: 0; }
       .tgl-bar  { height: 2px; background: #713917; border-radius: 1px; }
-      .tgl-divider { width: 1px; height: 22px; background: #c9a96e; }
+      .tgl-divider { display: none; }
       .tgl-label {
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 700;
         color: #713917;
         letter-spacing: 0.08em;
         line-height: 1;
       }
+      /* 防止標題被按鈕遮蓋 */
+      .site-header { padding-right: 60px; }
 
       /* 關閉按鈕 */
       .nav-drawer-close {
@@ -541,11 +544,10 @@
               aria-label="開啟選單" aria-expanded="false"
               aria-controls="site-nav">
         <div class="tgl-icon">
-          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:14px;"></div></div>
-          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:10px;"></div></div>
-          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:14px;"></div></div>
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:18px;"></div></div>
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:13px;"></div></div>
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:18px;"></div></div>
         </div>
-        <div class="tgl-divider"></div>
         <span class="tgl-label">選單</span>
       </button>
     </header>
