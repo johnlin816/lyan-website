@@ -445,29 +445,36 @@
         grid-template-areas: "main";
       }
 
-      /* 漢堡按鈕：顯示於 header 右側 */
+      /* G2 漢堡按鈕 */
       .nav-drawer-toggle {
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 7px;
         position: absolute;
         right: .85rem;
         top: 50%;
         transform: translateY(-50%);
-        width: 44px; height: 44px;
-        font-size: 1.4rem;
-        line-height: 1;
-        color: #fff;
-        background: var(--color-primary);
-        border: 2px solid var(--color-primary-dk);
-        border-radius: 5px;
+        height: 38px;
+        padding: 0 10px 0 8px;
+        background: #fdf6e8;
+        border: 2px solid #713917;
+        border-radius: 4px;
         cursor: pointer;
         z-index: 10;
-        box-shadow: 0 2px 5px rgba(0,0,0,.22);
       }
       .nav-drawer-toggle:hover,
-      .nav-drawer-toggle:focus-visible {
-        background: var(--color-primary-dk);
+      .nav-drawer-toggle:focus-visible { background: #f5ede3; }
+      .tgl-icon { display: flex; flex-direction: column; gap: 5px; }
+      .tgl-row  { display: flex; align-items: center; gap: 4px; }
+      .tgl-dot  { width: 4px; height: 4px; border-radius: 50%; background: #b8860b; flex-shrink: 0; }
+      .tgl-bar  { height: 2px; background: #713917; border-radius: 1px; }
+      .tgl-divider { width: 1px; height: 22px; background: #c9a96e; }
+      .tgl-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #713917;
+        letter-spacing: 0.08em;
+        line-height: 1;
       }
 
       /* 關閉按鈕 */
@@ -501,8 +508,9 @@
         transition: transform .25s ease;
         z-index: 200;
         box-shadow: 3px 0 18px rgba(0,0,0,.18);
+        pointer-events: none;
       }
-      .site-nav.drawer-open { transform: translateX(0); }
+      .site-nav.drawer-open { transform: translateX(0); pointer-events: auto; }
 
       .site-nav ul {
         flex-direction: column;
@@ -637,7 +645,15 @@
       <!-- 漢堡按鈕：手機版顯示，桌機隱藏 -->
       <button id="nav-drawer-toggle" class="nav-drawer-toggle"
               aria-label="開啟選單" aria-expanded="false"
-              aria-controls="site-nav">&#9776;</button>
+              aria-controls="site-nav">
+        <div class="tgl-icon">
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:14px;"></div></div>
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:10px;"></div></div>
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:14px;"></div></div>
+        </div>
+        <div class="tgl-divider"></div>
+        <span class="tgl-label">選單</span>
+      </button>
     </header>
 
     <!-- ===== Content Grid (nav + main) ===== -->
@@ -744,14 +760,12 @@
       function openDrawer() {
         drawer.classList.add('drawer-open');
         if (backdrop) backdrop.classList.add('active');
-        toggle.innerHTML = '&#x2715;';
         toggle.setAttribute('aria-expanded', 'true');
       }
 
       function closeDrawer() {
         drawer.classList.remove('drawer-open');
         if (backdrop) backdrop.classList.remove('active');
-        toggle.innerHTML = '&#9776;';
         toggle.setAttribute('aria-expanded', 'false');
       }
 

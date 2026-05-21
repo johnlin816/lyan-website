@@ -291,7 +291,7 @@
       background: #fdf6e8;
       border: 1px solid #c9a96e;
       border-radius: 3px;
-      padding: 0 0 8px;
+      padding: 0;
       text-align: center;
       cursor: pointer;
       transition: background .18s, border-color .18s, transform .12s;
@@ -302,7 +302,9 @@
       overflow: hidden;
     }
     .catalog-cat-tile:hover,
-    .catalog-cat-tile:focus-visible {
+    .catalog-cat-tile:focus-visible,
+    .catalog-cat-tile:active,
+    .catalog-cat-tile.hovered {
       background: #713917;
       border-color: #713917;
       transform: translateY(-2px);
@@ -310,15 +312,20 @@
     }
     .catalog-cat-tile:hover .tile-name,
     .catalog-cat-tile:focus-visible .tile-name,
+    .catalog-cat-tile:active .tile-name,
+    .catalog-cat-tile.hovered .tile-name,
     .catalog-cat-tile:hover .tile-hint,
-    .catalog-cat-tile:focus-visible .tile-hint { color: #fdf6e8; }
-    .catalog-cat-tile:hover .tile-img-wrap,
-    .catalog-cat-tile:focus-visible .tile-img-wrap { border-color: rgba(253,246,232,.4); }
+    .catalog-cat-tile:focus-visible .tile-hint,
+    .catalog-cat-tile:active .tile-hint,
+    .catalog-cat-tile.hovered .tile-hint { color: #fdf6e8; }
+    .catalog-cat-tile:hover .tile-text,
+    .catalog-cat-tile:focus-visible .tile-text,
+    .catalog-cat-tile:active .tile-text,
+    .catalog-cat-tile.hovered .tile-text { border-color: rgba(253,246,232,.4); }
     .tile-img-wrap {
       flex: 1 1 0;
       min-height: 0;
       overflow: hidden;
-      border-bottom: 1px solid #e0d0b8;
       display: flex; align-items: center; justify-content: center;
       background: #fff;
     }
@@ -342,16 +349,27 @@
       font-weight: 700;
       color: #c9a96e;
     }
-    .tile-name {
-      font-size: 12px; font-weight: 700;
-      color: #4e2610; letter-spacing: .04em;
+    .tile-text {
+      height: 44px;        /* 固定高度，統一所有磚塊文字區大小 */
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
       padding: 0 6px;
+      border-bottom: 1px solid #e0d0b8; /* 文字區與圖片區的分隔線 */
+      transition: border-color .18s;
+    }
+    .tile-name {
+      font-size: 14px; font-weight: 700;
+      color: #4e2610; letter-spacing: .04em;
       text-align: center;
+      line-height: 1.3;
     }
     .tile-hint {
-      font-size: 9.5px; color: #8a6440;
-      letter-spacing: .02em; line-height: 1.5;
-      padding: 0 6px;
+      font-size: 11px; color: #8a6440;
+      letter-spacing: .02em; line-height: 1.3;
       text-align: center;
       overflow: hidden;
       display: -webkit-box;
@@ -415,35 +433,63 @@
       width: 100%; height: 100%;
     }
     .product-card:hover,
-    .product-card:focus-visible {
+    .product-card:active,
+    .product-card.hovered {
       box-shadow: 0 4px 14px rgba(113,57,23,.22);
-      transform: translateY(-2px); outline: none;
+      transform: translateY(-2px);
+    }
+    .product-card:focus-visible {
+      outline: 2px solid #713917;
+      outline-offset: 2px;
+    }
+    /* hover + active + JS .hovered class 三管齊下（.hovered 由 JS mouseover/touchstart 控制，
+       確保桌面 hover 與行動觸控都能可靠變色；避免 focus-visible 點擊後卡住深色） */
+    .product-card:hover .card-header,
+    .product-card:active .card-header,
+    .product-card.hovered .card-header {
+      background: #713917;
+    }
+    .product-card:hover .card-name,
+    .product-card:active .card-name,
+    .product-card.hovered .card-name {
+      color: #fdf6e8;
+    }
+    .product-card:hover .card-header-dot,
+    .product-card:active .card-header-dot,
+    .product-card.hovered .card-header-dot {
+      background: #c9a96e;
     }
     .card-header {
-      background: #713917; padding: 7px 8px;
+      background: #fdf6e8; /* 預設淺色，hover 才變深棕 */
+      border-bottom: 1px solid #d5b89a;
+      padding: 7px 8px;
       display: flex; align-items: center;
       justify-content: center; gap: 5px;
       height: 54px; /* 固定 header 高度，統一所有卡片 */
       overflow: hidden;
       flex-shrink: 0;
+      transition: background .18s;
     }
     .card-header-dot {
       width: 3px; height: 3px; border-radius: 50%;
-      background: #c9a96e; flex-shrink: 0;
+      background: #b8860b; flex-shrink: 0;
     }
     .card-name {
       font-size: .78rem; font-weight: 600;
-      color: #fdf6e8; text-align: center;
+      color: #4e2610; /* 預設深棕字，hover 才變米白 */
+      text-align: center;
       line-height: 1.4; letter-spacing: 0.06em;
+      transition: color .18s;
     }
     .card-img-wrap {
       background: #fff;
       display: flex; align-items: center; justify-content: center;
-      padding: .5rem;
-      height: 160px; /* 固定高度，讓所有商品圖視覺大小一致 */
+      padding: .35rem;
+      flex: 1; /* 填滿 header 與 footer 之間所有空間，金線永遠緊貼底部 */
+      min-height: 0; /* 防止 flex item 撐破父層 */
     }
     .card-img-wrap img {
-      max-width: 100%; max-height: 140px;
+      max-width: 100%; max-height: 100%;
       width: auto; height: auto;
       object-fit: contain;
     }
@@ -464,7 +510,7 @@
     .modal-overlay[hidden] { display: none; }
     .modal-box {
       background: var(--color-white);
-      border-radius: 8px; width: 100%; max-width: 560px;
+      border-radius: 8px; width: 100%; max-width: 620px;
       max-height: 90vh; overflow-y: auto;
       position: relative; padding: 1.5rem;
       display: flex; flex-direction: column; gap: 1rem;
@@ -478,19 +524,19 @@
       display: flex; align-items: center; justify-content: center;
     }
     .modal-close:hover { background: #f0e8e0; color: var(--color-primary); }
-    .modal-body { display: flex; gap: 1.25rem; }
+    .modal-body { display: flex; gap: 1.25rem; align-items: flex-start; }
     .modal-img-wrap {
-      flex-shrink: 0; width: 150px;
+      flex-shrink: 0; width: 210px;
       background: #fff;
       border: 1px solid #d5b89a; border-top: 3px solid #713917;
       border-radius: 2px; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
       padding: .5rem;
-      min-height: 150px;
+      min-height: 200px;
     }
     .modal-img-wrap img {
       width: 100%; height: auto;
-      max-height: 220px;
+      max-height: none;
       object-fit: contain;
     }
     .modal-info { flex: 1; min-width: 0; }
@@ -550,29 +596,36 @@
         grid-template-areas: "main";
       }
 
-      /* 漢堡按鈕：顯示於 header 右側 */
+      /* G2 漢堡按鈕 */
       .nav-drawer-toggle {
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 7px;
         position: absolute;
         right: .85rem;
         top: 50%;
         transform: translateY(-50%);
-        width: 44px; height: 44px;
-        font-size: 1.4rem;
-        line-height: 1;
-        color: #fff;
-        background: var(--color-primary);
-        border: 2px solid var(--color-primary-dk);
-        border-radius: 5px;
+        height: 38px;
+        padding: 0 10px 0 8px;
+        background: #fdf6e8;
+        border: 2px solid #713917;
+        border-radius: 4px;
         cursor: pointer;
         z-index: 10;
-        box-shadow: 0 2px 5px rgba(0,0,0,.22);
       }
       .nav-drawer-toggle:hover,
-      .nav-drawer-toggle:focus-visible {
-        background: var(--color-primary-dk);
+      .nav-drawer-toggle:focus-visible { background: #f5ede3; }
+      .tgl-icon { display: flex; flex-direction: column; gap: 5px; }
+      .tgl-row  { display: flex; align-items: center; gap: 4px; }
+      .tgl-dot  { width: 4px; height: 4px; border-radius: 50%; background: #b8860b; flex-shrink: 0; }
+      .tgl-bar  { height: 2px; background: #713917; border-radius: 1px; }
+      .tgl-divider { width: 1px; height: 22px; background: #c9a96e; }
+      .tgl-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #713917;
+        letter-spacing: 0.08em;
+        line-height: 1;
       }
 
       /* 關閉按鈕：顯示於抽屜頂端右側 */
@@ -606,9 +659,13 @@
         transition: transform .25s ease;
         z-index: 200;
         box-shadow: 3px 0 18px rgba(0, 0, 0, .18);
+        pointer-events: none; /* 關閉時不攔截觸控，避免擋住左欄點擊 */
       }
       /* 抽屜打開狀態（JS 加 .drawer-open） */
-      .site-nav.drawer-open { transform: translateX(0); }
+      .site-nav.drawer-open {
+        transform: translateX(0);
+        pointer-events: auto;
+      }
 
       /* 抽屜內：nav 垂直排列 */
       .site-nav ul {
@@ -650,7 +707,7 @@
       .catalog-cat-tiles { grid-template-columns: repeat(2, 1fr); }
       .section-heading-bar { width: 100%; justify-content: center; }
       .modal-body { flex-direction: column; align-items: center; }
-      .modal-img-wrap { width: 100%; max-width: 200px; }
+      .modal-img-wrap { width: 100%; max-width: 240px; }
       .footer-deco { background-size: 100% 8px; }
     }
 
@@ -765,7 +822,15 @@
       <!-- 漢堡按鈕：手機版顯示，桌機隱藏 -->
       <button id="nav-drawer-toggle" class="nav-drawer-toggle"
               aria-label="開啟選單" aria-expanded="false"
-              aria-controls="site-nav">&#9776;</button>
+              aria-controls="site-nav">
+        <div class="tgl-icon">
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:14px;"></div></div>
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:10px;"></div></div>
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:14px;"></div></div>
+        </div>
+        <div class="tgl-divider"></div>
+        <span class="tgl-label">選單</span>
+      </button>
     </header>
 
     <!-- ===== Content Grid ===== -->
@@ -942,7 +1007,7 @@
       <button class="modal-close" id="modal-close-btn" aria-label="關閉">&#x2715;</button>
       <div class="modal-body">
         <div class="modal-img-wrap">
-          <img id="modal-img" src="" alt="" width="140">
+          <img id="modal-img" src="" alt="">
         </div>
         <div class="modal-info">
           <h2 class="modal-name" id="modal-name"></h2>
@@ -1022,14 +1087,14 @@
             en: 'Calmex Brand Wild Abalone, Product of Mexico',
             unit: '每箱24罐',
             img: './upload/u6imv37bx0.jpg',
-            desc: '墨西哥車輪鮑捕捉的海域位於墨西哥的下加利福尼亞海灣（Baja California）沿岸，此海域的水質特別清澈，鮮少被外界人為的破壞，再加上洋流交界，海水溫度特別適合鮑魚生長的天然環境，使墨西哥被世界公認為最好的鮑魚產地，全球最著名的車輪牌（Calmex brand）鮑魚，正是盛產於此海灣一帶。'
+            desc: '墨西哥車輪鮑捕捉的海域位於墨西哥的下加利福尼亞海灣（Baja California）沿岸，此海域的水質特別清澈，鮮少被外界人為的破壞，再加上洋流交界，海水溫度特別適合鮑魚生長的天然環境，使墨西哥被世界公認為最好的鮑魚產地，全球最著名的車輪牌（Calmex brand）鮑魚，正是盛產於此海灣一帶。\n<strong>「車輪牌」為本公司代理進口，品質保證。</strong>'
           },
           {
             name: '澳洲車輪牌鮑魚罐頭',
             en: 'Calmex Canned Abalone, Australia',
             unit: '每箱24罐',
             img: './upload/1778213450757.png',
-            desc: '在行銷墨西哥車輪牌鮑魚罐頭後，美國海洋公園公司推出於澳洲產的車輪鮑魚罐頭。秉持良好的品質與行銷，銷售於整個華人罐頭鮑魚市場。'
+            desc: '在行銷墨西哥車輪牌鮑魚罐頭後，美國海洋公園公司推出於澳洲產的車輪鮑魚罐頭。秉持良好的品質與行銷，銷售於整個華人罐頭鮑魚市場。\n<strong>「車輪牌」為本公司代理進口，品質保證。</strong>'
           },
           {
             name: '澳洲海吉妞牌野生鮑魚罐頭',
@@ -1535,13 +1600,15 @@
           '<li>' +
           '<button class="catalog-cat-tile" data-tile-cat="' + cat.id + '"' +
           ' aria-label="' + cat.label + ' 分類">' +
+          '<div class="tile-text">' +
+          '<span class="tile-name">' + cat.label + '</span>' +
+          (hint ? '<span class="tile-hint">' + hint + '</span>' : '') +
+          '</div>' +
           '<div class="tile-img-wrap">' +
           (cat.img
             ? '<img src="' + cat.img + '" alt="' + cat.label + '" loading="lazy">'
             : '<div class="tile-img-empty">' + cat.label.charAt(0) + '</div>') +
           '</div>' +
-          '<span class="tile-name">' + cat.label + '</span>' +
-          (hint ? '<span class="tile-hint">' + hint + '</span>' : '') +
           '</button>' +
           '</li>';
       });
@@ -1567,12 +1634,14 @@
           '<li>' +
           '<button class="catalog-cat-tile" data-tile-subcat="' + sub.id + '"' +
           ' aria-label="' + sub.label + '">' +
+          '<div class="tile-text">' +
+          '<span class="tile-name">' + sub.label + '</span>' +
+          '</div>' +
           '<div class="tile-img-wrap">' +
           (firstImg
             ? '<img src="' + firstImg + '" alt="' + sub.label + '" loading="lazy">'
             : '<div class="tile-img-empty">' + sub.label.charAt(0) + '</div>') +
           '</div>' +
-          '<span class="tile-name">' + sub.label + '</span>' +
           '</button>' +
           '</li>';
       });
@@ -1586,6 +1655,42 @@
     const modal      = document.getElementById('product-modal');
     const modalClose = document.getElementById('modal-close-btn');
     let lastFocused  = null;
+
+    /* ========================================
+       Hover / Touch 視覺回饋（JS class .hovered）
+       桌面：mouseover + mouseout
+       手機：touchstart + touchend/cancel
+    ======================================== */
+    var productsArea = document.getElementById('catalog-products');
+
+    productsArea.addEventListener('mouseover', function(e) {
+      var card = e.target.closest('.product-card');
+      var tile = e.target.closest('.catalog-cat-tile');
+      if (card) card.classList.add('hovered');
+      if (tile) tile.classList.add('hovered');
+    });
+    productsArea.addEventListener('mouseout', function(e) {
+      var card = e.target.closest('.product-card');
+      var tile = e.target.closest('.catalog-cat-tile');
+      if (card) card.classList.remove('hovered');
+      if (tile) tile.classList.remove('hovered');
+    });
+
+    productsArea.addEventListener('touchstart', function(e) {
+      var card = e.target.closest('.product-card');
+      var tile = e.target.closest('.catalog-cat-tile');
+      if (card) card.classList.add('hovered');
+      if (tile) tile.classList.add('hovered');
+    }, { passive: true });
+
+    function removeTouchHover(e) {
+      var card = e.target.closest('.product-card');
+      var tile = e.target.closest('.catalog-cat-tile');
+      if (card) setTimeout(function() { card.classList.remove('hovered'); }, 350);
+      if (tile) setTimeout(function() { tile.classList.remove('hovered'); }, 350);
+    }
+    productsArea.addEventListener('touchend',    removeTouchHover, { passive: true });
+    productsArea.addEventListener('touchcancel', removeTouchHover, { passive: true });
 
     document.getElementById('catalog-products').addEventListener('click', function(e) {
       /* 返回按鈕 */
@@ -1648,7 +1753,7 @@
       document.getElementById('modal-name').textContent = p.name;
       document.getElementById('modal-en').textContent   = p.en;
       document.getElementById('modal-unit').textContent = p.unit;
-      document.getElementById('modal-desc').textContent = p.desc;
+      document.getElementById('modal-desc').innerHTML   = p.desc;
       modal.hidden = false;
       modalClose.focus();
     }
@@ -1680,14 +1785,12 @@
       function openDrawer() {
         drawer.classList.add('drawer-open');
         if (backdrop) backdrop.classList.add('active');
-        toggle.innerHTML = '&#x2715;';
         toggle.setAttribute('aria-expanded', 'true');
       }
 
       function closeDrawer() {
         drawer.classList.remove('drawer-open');
         if (backdrop) backdrop.classList.remove('active');
-        toggle.innerHTML = '&#9776;';
         toggle.setAttribute('aria-expanded', 'false');
       }
 

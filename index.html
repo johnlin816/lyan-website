@@ -382,6 +382,23 @@
     }
 
     /* =============================================
+       漢堡抽屜 — 桌機預設隱藏
+    ============================================= */
+    .nav-drawer-toggle,
+    .nav-drawer-close { display: none; }
+
+    /* 半透明遮罩：JS 加 .active 後顯示 */
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 199;
+      cursor: pointer;
+    }
+    .nav-backdrop.active { display: block; }
+
+    /* =============================================
        RWD — Tablet ( ≤ 768px )
     ============================================= */
     @media (max-width: 768px) {
@@ -397,61 +414,124 @@
     }
 
     /* =============================================
-       RWD — Mobile ( ≤ 540px ) — Stack layout
+       RWD — Mobile ( ≤ 540px ) — 漢堡抽屜版面
     ============================================= */
     @media (max-width: 540px) {
-      /* Grid 改為單欄垂直排列 */
+
+      /* 內容區：移除 nav 欄，主內容佔滿全寬 */
       .content-wrapper {
         grid-template-columns: 1fr;
-        grid-template-areas:
-          "nav"
-          "main";
+        grid-template-areas: "main";
       }
 
-      /* Nav 改橫向 wrap */
-      .site-nav {
-        border-right: none;
-        border-bottom: 1px solid #d5b89a;
-        padding: 0.65rem 0.75rem;
+      /* ── G2 漢堡按鈕 ── */
+      .nav-drawer-toggle {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        position: absolute;
+        right: .85rem;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 38px;
+        padding: 0 10px 0 8px;
+        background: #fdf6e8;
+        border: 2px solid #713917;
+        border-radius: 4px;
+        cursor: pointer;
+        z-index: 10;
       }
+      .nav-drawer-toggle:hover,
+      .nav-drawer-toggle:focus-visible { background: #f5ede3; }
+
+      /* G2 圖示區 */
+      .tgl-icon { display: flex; flex-direction: column; gap: 5px; }
+      .tgl-row  { display: flex; align-items: center; gap: 4px; }
+      .tgl-dot  { width: 4px; height: 4px; border-radius: 50%; background: #b8860b; flex-shrink: 0; }
+      .tgl-bar  { height: 2px; background: #713917; border-radius: 1px; }
+
+      /* G2 金線分隔 */
+      .tgl-divider { width: 1px; height: 22px; background: #c9a96e; }
+
+      /* G2 文字 */
+      .tgl-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #713917;
+        letter-spacing: 0.08em;
+        line-height: 1;
+      }
+
+      /* 關閉按鈕（抽屜內） */
+      .nav-drawer-close {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        padding: .4rem .1rem .75rem;
+        font-size: 1.2rem;
+        color: #4e2610;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .nav-drawer-close:hover,
+      .nav-drawer-close:focus-visible { color: #713917; }
+
+      /* Nav → fixed 左側抽屜 */
+      .site-nav {
+        position: fixed;
+        top: 0; left: 0;
+        width: 260px;
+        height: 100%;
+        overflow-y: auto;
+        background: #fdf6e8;
+        border-right: 2px solid #c9a96e;
+        border-bottom: none;
+        padding: .5rem .8rem 2.5rem;
+        transform: translateX(-100%);
+        transition: transform .25s ease;
+        z-index: 200;
+        box-shadow: 3px 0 18px rgba(0,0,0,.18);
+        pointer-events: none;
+      }
+      .site-nav.drawer-open { transform: translateX(0); pointer-events: auto; }
 
       .site-nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.4rem;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 0;
+        padding: 0 .25rem;
       }
 
-      .site-nav li a {
-        height: 36px;
-        padding: 0 0.8rem;
-        font-size: 0.82rem;
-        background-image: none;
-        background-color: var(--color-bg-nav);
-        border: 1px solid var(--color-primary);
-        border-radius: 4px;
+      #site-nav li a {
+        display: flex !important;
+        align-items: center;
+        height: auto !important;
+        min-height: 44px;
+        padding: .65rem .85rem !important;
+        font-size: .92rem;
+        font-weight: 600;
+        color: #4e2610 !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        border-bottom: 1px solid #e2d0b8 !important;
+        letter-spacing: .03em;
+        text-decoration: none;
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(113,57,23,.15);
+      }
+      #site-nav li a:hover,
+      #site-nav li a:focus-visible {
+        background-color: rgba(113,57,23,.08) !important;
+        color: #713917 !important;
       }
 
-      .site-nav li a:hover,
-      .site-nav li a:focus-visible {
-        background-color: var(--color-primary);
-        color: var(--color-white);
-        transform: none;
-        opacity: 1;
-      }
-
-      .site-main {
-        padding: 0.75rem;
-      }
-
-      .section-heading-bar {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .footer-deco {
-        background-size: 100% 8px;
-        max-width: 100%;
-      }
+      .site-main { padding: .75rem; }
+      .section-heading-bar { width: 100%; justify-content: center; }
+      .footer-deco { background-size: 100% 8px; max-width: 100%; }
     }
 
     /* =============================================
@@ -511,13 +591,27 @@
         </div>
         <p class="site-title-en">LY AN TRADE CO., LTD.</p>
       </div>
+      <!-- 漢堡按鈕：手機版顯示，桌機隱藏 -->
+      <button id="nav-drawer-toggle" class="nav-drawer-toggle"
+              aria-label="開啟選單" aria-expanded="false"
+              aria-controls="site-nav">
+        <div class="tgl-icon">
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:14px;"></div></div>
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:10px;"></div></div>
+          <div class="tgl-row"><div class="tgl-dot"></div><div class="tgl-bar" style="width:14px;"></div></div>
+        </div>
+        <div class="tgl-divider"></div>
+        <span class="tgl-label">選單</span>
+      </button>
     </header>
 
     <!-- ===== Content Grid (nav + main) ===== -->
     <div class="content-wrapper">
 
       <!-- Side Navigation -->
-      <nav class="site-nav" aria-label="主選單">
+      <nav class="site-nav" id="site-nav" aria-label="主選單">
+        <!-- 關閉按鈕：手機抽屜內顯示 -->
+        <button class="nav-drawer-close" id="nav-drawer-close" aria-label="關閉選單">&#x2715;</button>
         <ul>
           <li><a href="./introduction.html">公司簡介</a></li>
           <li><a href="./whatsnew.html">最新消息</a></li>
@@ -580,6 +674,63 @@
     </footer>
 
   </div><!-- /.page-wrapper -->
+
+  <!-- 抽屜半透明遮罩 -->
+  <div id="nav-backdrop" class="nav-backdrop" aria-hidden="true"></div>
+
+  <script>
+    /* ========================================
+       漢堡抽屜 — 開關邏輯（手機版）
+    ======================================== */
+    (function () {
+      var toggle   = document.getElementById('nav-drawer-toggle');
+      var closeBtn = document.getElementById('nav-drawer-close');
+      var drawer   = document.getElementById('site-nav');
+      var backdrop = document.getElementById('nav-backdrop');
+      if (!toggle || !drawer) return;
+
+      function openDrawer() {
+        drawer.classList.add('drawer-open');
+        if (backdrop) backdrop.classList.add('active');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('drawer-open');
+        if (backdrop) backdrop.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      toggle.addEventListener('click', function () {
+        if (drawer.classList.contains('drawer-open')) closeDrawer();
+        else openDrawer();
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && drawer.classList.contains('drawer-open')) closeDrawer();
+      });
+
+      /* touchend 修正：overflow-y:auto 捲軸會消費 touchstart，
+         導致 click 不觸發。量測垂直位移 < 10px 視為 tap，直接跳頁。 */
+      var _touchStartY = 0;
+      drawer.addEventListener('touchstart', function (e) {
+        _touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      drawer.addEventListener('touchend', function (e) {
+        var link = e.target.closest('a[href]');
+        if (!link) return;
+        var dy = Math.abs(e.changedTouches[0].clientY - _touchStartY);
+        if (dy < 10) {
+          e.preventDefault();
+          window.location.href = link.getAttribute('href');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
                  
