@@ -333,8 +333,10 @@
       display: block;
       width: 100%;
       height: 100% !important;
-      object-fit: cover;
+      object-fit: contain;
       max-height: none !important;
+      padding: .25rem;
+      box-sizing: border-box;
     }
     .tile-img-empty {
       width: 100%;
@@ -1088,7 +1090,7 @@
             name: '墨西哥車輪牌鮑魚罐頭',
             en: 'Calmex Brand Wild Abalone, Product of Mexico',
             unit: '每箱24罐',
-            img: './upload/u6imv37bx0.jpg',
+            img: './upload/EXAD41.png',
             desc: '墨西哥車輪鮑捕捉的海域位於墨西哥的下加利福尼亞海灣（Baja California）沿岸，此海域的水質特別清澈，鮮少被外界人為的破壞，再加上洋流交界，海水溫度特別適合鮑魚生長的天然環境，使墨西哥被世界公認為最好的鮑魚產地，全球最著名的車輪牌（Calmex brand）鮑魚，正是盛產於此海灣一帶。\n<strong>「車輪牌」為本公司代理進口，品質保證。</strong>'
           },
           {
@@ -1389,7 +1391,7 @@
        分類樹狀結構
     ======================================== */
     const CATEGORIES = [
-      { id: 'abalone',    label: '鮑魚',   img: './upload/u6imv37bx0.jpg', children: [
+      { id: 'abalone',    label: '鮑魚',   img: './upload/EXAD41.png', children: [
         { id: 'abalone-dry', label: '乾鮑魚' },
         { id: 'abalone-can', label: '鮑魚罐頭' }
       ]},
