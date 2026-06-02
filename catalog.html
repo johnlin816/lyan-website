@@ -532,14 +532,51 @@
       background: #fff;
       border: 1px solid #d5b89a; border-top: 3px solid #713917;
       border-radius: 2px; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      padding: .5rem;
+      position: relative;
       min-height: 200px;
     }
-    .modal-img-wrap img {
+    /* slider */
+    .modal-slider {
+      display: flex;
+      transition: transform .3s ease;
+      will-change: transform;
+      height: 100%;
+    }
+    .modal-slide {
+      min-width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      padding: .5rem; box-sizing: border-box;
+    }
+    .modal-slide img {
       width: 100%; height: auto;
-      max-height: none;
+      max-height: 260px;
       object-fit: contain;
+    }
+    /* 箭頭（桌面） */
+    .modal-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(113,57,23,.7); color: #fdf6e8;
+      border: none; border-radius: 50%;
+      width: 28px; height: 28px; font-size: 14px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      z-index: 2; padding: 0;
+    }
+    .modal-arrow:hover { background: #713917; }
+    .modal-arrow-prev { left: 4px; }
+    .modal-arrow-next { right: 4px; }
+    .modal-arrow[hidden] { display: none; }
+    /* 圓點 */
+    .modal-dots {
+      position: absolute; bottom: 6px; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 5px;
+    }
+    .modal-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #d5b89a; border: none; padding: 0; cursor: pointer;
+    }
+    .modal-dot.active { background: #713917; }
+    @media (max-width: 540px) {
+      .modal-arrow { display: none; }
     }
     .modal-info { flex: 1; min-width: 0; }
     .modal-name { font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: .25rem; }
@@ -1010,8 +1047,11 @@
     <div class="modal-box">
       <button class="modal-close" id="modal-close-btn" aria-label="關閉">&#x2715;</button>
       <div class="modal-body">
-        <div class="modal-img-wrap">
-          <img id="modal-img" src="" alt="">
+        <div class="modal-img-wrap" id="modal-img-wrap">
+          <div class="modal-slider" id="modal-slider"></div>
+          <button class="modal-arrow modal-arrow-prev" id="modal-prev" aria-label="上一張">&#8249;</button>
+          <button class="modal-arrow modal-arrow-next" id="modal-next" aria-label="下一張">&#8250;</button>
+          <div class="modal-dots" id="modal-dots"></div>
         </div>
         <div class="modal-info">
           <h2 class="modal-name" id="modal-name"></h2>
@@ -1091,6 +1131,7 @@
             en: 'Calmex Brand Wild Abalone, Product of Mexico',
             unit: '每箱24罐',
             img: './upload/EXAD41.png',
+            imgs: ['./upload/EXAD41.png', './upload/calmex_logo.jpg', './upload/calmex_giftset.jpg'],
             desc: '墨西哥車輪鮑捕捉的海域位於墨西哥的下加利福尼亞海灣（Baja California）沿岸，此海域的水質特別清澈，鮮少被外界人為的破壞，再加上洋流交界，海水溫度特別適合鮑魚生長的天然環境，使墨西哥被世界公認為最好的鮑魚產地，全球最著名的車輪牌（Calmex brand）鮑魚，正是盛產於此海灣一帶。\n<strong>「車輪牌」為本公司代理進口，品質保證。</strong>'
           },
           {
@@ -1098,6 +1139,7 @@
             en: 'Calmex Canned Abalone, Australia',
             unit: '每箱24罐',
             img: './upload/1778213450757.png',
+            imgs: ['./upload/1778213450757.png', './upload/1780372811602.png', './upload/calmex_giftset.jpg'],
             desc: '在行銷墨西哥車輪牌鮑魚罐頭後，美國海洋公園公司推出於澳洲產的車輪鮑魚罐頭。秉持良好的品質與行銷，銷售於整個華人罐頭鮑魚市場。\n<strong>「車輪牌」為本公司代理進口，品質保證。</strong>'
           },
           {
@@ -1582,7 +1624,7 @@
           const list = document.getElementById('cat-list-' + cat.id);
           if (list) toggleGroup(cat.id, groupBtn, list);
         }
-        selectCategory(cat.children[0].id);
+        showSubcategoryTiles(cat);
       } else {
         selectCategory(cat.id);
       }
@@ -1745,6 +1787,35 @@
       }
     });
 
+    /* ── Modal slider state ── */
+    var sliderIdx = 0;
+    var sliderImgs = [];
+
+    function renderSlider() {
+      var slider = document.getElementById('modal-slider');
+      var dots   = document.getElementById('modal-dots');
+      var prev   = document.getElementById('modal-prev');
+      var next   = document.getElementById('modal-next');
+      slider.innerHTML = sliderImgs.map(function(src, i) {
+        return '<div class="modal-slide"><img src="' + src + '" alt="圖片' + (i+1) + '" loading="lazy"></div>';
+      }).join('');
+      dots.innerHTML = sliderImgs.length > 1 ? sliderImgs.map(function(_, i) {
+        return '<button class="modal-dot' + (i === sliderIdx ? ' active' : '') + '" data-dot="' + i + '" aria-label="第' + (i+1) + '張"></button>';
+      }).join('') : '';
+      slider.style.transform = 'translateX(-' + (sliderIdx * 100) + '%)';
+      if (prev) prev.hidden = sliderImgs.length <= 1;
+      if (next) next.hidden = sliderImgs.length <= 1;
+    }
+
+    function goSlide(n) {
+      sliderIdx = (n + sliderImgs.length) % sliderImgs.length;
+      var slider = document.getElementById('modal-slider');
+      slider.style.transform = 'translateX(-' + (sliderIdx * 100) + '%)';
+      document.querySelectorAll('.modal-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === sliderIdx);
+      });
+    }
+
     function openModal(card) {
       const catId = card.dataset.cat;
       const idx   = parseInt(card.dataset.idx, 10);
@@ -1752,14 +1823,35 @@
       if (!p) return;
 
       lastFocused = card;
-      document.getElementById('modal-img').src    = p.img;
-      document.getElementById('modal-img').alt    = p.name;
+      sliderIdx  = 0;
+      sliderImgs = p.imgs || [p.img];
+      renderSlider();
+
       document.getElementById('modal-name').textContent = p.name;
       document.getElementById('modal-en').textContent   = p.en;
       document.getElementById('modal-unit').textContent = p.unit;
       document.getElementById('modal-desc').innerHTML   = p.desc;
       modal.hidden = false;
       modalClose.focus();
+
+      /* 箭頭點擊 */
+      document.getElementById('modal-prev').onclick = function() { goSlide(sliderIdx - 1); };
+      document.getElementById('modal-next').onclick = function() { goSlide(sliderIdx + 1); };
+
+      /* 圓點點擊 */
+      document.getElementById('modal-dots').onclick = function(e) {
+        var dot = e.target.closest('[data-dot]');
+        if (dot) goSlide(parseInt(dot.dataset.dot, 10));
+      };
+
+      /* 觸控滑動 */
+      var wrap = document.getElementById('modal-img-wrap');
+      var tx = 0;
+      wrap.ontouchstart = function(e) { tx = e.touches[0].clientX; };
+      wrap.ontouchend   = function(e) {
+        var dx = e.changedTouches[0].clientX - tx;
+        if (Math.abs(dx) > 40) goSlide(dx < 0 ? sliderIdx + 1 : sliderIdx - 1);
+      };
     }
 
     function closeModal() {
