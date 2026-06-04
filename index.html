@@ -273,77 +273,77 @@
     /* =============================================
        Section: 公司簡介
     ============================================= */
-    .intro-section {
-      padding-top: 0.5rem;
-    }
-
-    /* 區塊標題列（用背景圖保留原始視覺） */
-        /* =============================================
-       Section Heading Bar — Style B 米色左棕框標籤
-    ============================================= */
-    .section-heading-bar {
+    .page-heading-bar {
       display: inline-flex;
       align-items: center;
       height: 32px;
       min-width: 120px;
       padding: 0 1rem;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.25rem;
+      margin-top: .5rem;
       background: #fdf6e8;
       border: 1px solid #c9a96e;
       border-left: 3px solid #713917;
       border-radius: 0 2px 2px 0;
     }
-
-    .section-heading-bar span {
+    .page-heading-bar span {
       font-size: 0.95rem;
       font-weight: 700;
       color: #4e2610;
       letter-spacing: 0.06em;
     }
 
-    /* 「關於我們」子標題 */
-    .subsection-header {
+    .about-section { margin-bottom: 1.5rem; }
+
+    .subsection-title {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
-      margin-bottom: 0.8rem;
+      gap: .5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: .75rem;
     }
-
-    .subsection-divider {
+    .subsection-title::before,
+    .subsection-title::after {
+      content: '';
       display: inline-block;
       width: 2px;
       height: 14px;
-      background-image: url('./image/imge/01.gif');
-      background-repeat: no-repeat;
-      background-size: 2px 13px;
-      background-position: center;
-      background-color: var(--color-primary); /* fallback */
+      background-color: var(--color-primary);
+      border-radius: 1px;
       flex-shrink: 0;
     }
 
-    .subsection-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--color-gold);
-      letter-spacing: 0.05em;
-    }
-
-    /* 內文 */
-    .intro-text {
-      font-size: 0.875rem;
+    .about-body {
+      font-size: .9rem;
       line-height: 1.85;
       color: var(--color-text);
     }
+    .about-body p { margin-bottom: .85rem; }
+    .about-body p:last-child { margin-bottom: 0; }
 
-    .intro-text p {
-      margin-bottom: 0.8rem;
+    .partner-list {
+      margin-top: .6rem;
+      margin-left: .25rem;
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+    }
+    .partner-list li {
+      display: flex;
+      gap: .6rem;
+      font-size: .88rem;
+      line-height: 1.6;
+      color: var(--color-text);
+    }
+    .partner-num {
+      flex-shrink: 0;
+      min-width: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
     }
 
-    .intro-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* 分隔線 */
     .section-rule {
       border: none;
       border-top: 1px solid var(--color-border);
@@ -410,7 +410,7 @@
         font-size: 0.85rem;
       }
 
-      .intro-text {
+      .about-body {
         font-size: 0.84rem;
       }
     }
@@ -529,7 +529,7 @@
       }
 
       .site-main { padding: .75rem; }
-      .section-heading-bar { width: 100%; justify-content: center; }
+      .page-heading-bar { width: 100%; justify-content: center; }
       .footer-deco { background-size: 100% 8px; max-width: 100%; }
     }
 
@@ -541,7 +541,7 @@
         height: 34px;
       }
 
-      .intro-text {
+      .about-body {
         font-size: 0.8rem;
       }
     }
@@ -661,43 +661,61 @@
       <!-- Main Content -->
       <main class="site-main" id="main-content">
 
-        <!-- Ticker（CSS animation 取代 <marquee>）-->
+        <!-- Ticker -->
         <div class="ticker-wrap" aria-label="最新公告" role="marquee">
           <div class="ticker-track">
-            <span class="ticker-text">專營進口：干貝、刺參、吉品乾鮑、日本網鮑、日本五島明鮑、澳洲鮑魚、飯岡屋調味南美貝、蒟蒻粉、韓國松茸</span>
+            <span class="ticker-text">專營進口：鮑魚、干貝、刺參、飯岡屋調味南美貝、花膠魚肚、燕窩、南美貝</span>
           </div>
         </div>
 
-        <!-- 公司簡介 Section -->
-        <section class="intro-section" aria-labelledby="section-intro">
+        <!-- Page Heading -->
+        <div class="page-heading-bar" aria-hidden="true">
+          <span>公司簡介</span>
+        </div>
 
-          <div class="section-heading-bar">
-            <span id="section-intro">公司簡介</span>
+        <!-- About Section -->
+        <article class="about-section" aria-labelledby="about-heading">
+          <h2 class="subsection-title" id="about-heading">關於我們</h2>
+
+          <div class="about-body">
+            <p>海鮮乾貨頂級食材的經營，是一門承載百年飲食文化的傳統行業。鮑、參、翅、肚、干貝、燕窩向來是華人餐桌上最受推崇的珍饈，隨著國人生活品質持續提升，對高品質海味頂級食材的需求也與日俱增。</p>
+
+            <p>利安貿易有限公司深耕進口海鮮食材逾三十年，始終秉持「貨真價實，薄利多銷」的創業宗旨。我們深入日本北海道、澳洲塔斯馬尼亞、墨西哥灣等全球重要漁場，將最新鮮的產地風味直送台灣餐桌。</p>
+
+            <p>三十年來，我們以穩定的品質與誠信的商譽，服務全台灣的餐飲業者、食材批發商與重視飲食品質的家庭，建立了深厚的信任基礎。</p>
+
+            <p>目前主要合作原產國廠商與代理之產品如下，全部皆為產地直送、原裝進口：</p>
+
+            <ol class="partner-list" aria-label="合作廠商列表">
+              <li>
+                <span class="partner-num">1.</span>
+                <span>日本北海道漁聯組織 — 乾干貝、乾鮑（吉品／皇冠）、刺參、冷凍生食級干貝</span>
+              </li>
+              <li>
+                <span class="partner-num">2.</span>
+                <span>日本知名品牌 — 飯岡屋調味南美貝</span>
+              </li>
+              <li>
+                <span class="partner-num">3.</span>
+                <span>Calmex brand — 車輪牌鮑魚罐頭（墨西哥與澳洲）</span>
+              </li>
+              <li>
+                <span class="partner-num">4.</span>
+                <span>澳洲知名鮑魚工廠 — AFCOL、塔斯馬尼亞公司</span>
+              </li>
+              <li>
+                <span class="partner-num">5.</span>
+                <span>智利南美貝罐頭 — Alimex</span>
+              </li>
+              <li>
+                <span class="partner-num">6.</span>
+                <span>印尼農業部核准出口之頂級乾燕窩</span>
+              </li>
+            </ol>
           </div>
+        </article>
 
-          <div class="subsection-header">
-            <span class="subsection-divider" aria-hidden="true"></span>
-            <h2 class="subsection-title">關於我們</h2>
-            <span class="subsection-divider" aria-hidden="true"></span>
-          </div>
-
-          <div class="intro-text">
-            <p>高品質的海鮮食材的經營是一門歷史悠久的傳統行業，近年隨著國民生活素質的改善，對飲食的要求也越來越高，鮑參翅肚等海味就更受到消費者的歡迎。</p>
-            <p>本公司專營進口全球海鮮類的產品。我們致力於從原產國採購，直接進口輸入台灣，進而提供價美物廉的貨物給客戶。我們堅持「貨真價實，薄利多銷」的服務宗旨，因而建立了良好的信譽及品質。</p>
-            <p>目前主要合作原產國廠商與代理的產品如下（全部皆為產地直送）：</p>
-            <p>
-              1. 日本北海道最大漁聯組織 乾干貝、乾鮑（吉品／沃麻）、海參、冷凍干貝<br>
-              2. 日本知名品牌 飯岡屋調味南美貝<br>
-              3. 日本最大蒟蒻粉工廠 白雪牌蒟蒻粉<br>
-              4. 世界知名品牌 墨西哥車輪牌（Calmex brand）鮑魚罐頭<br>
-              5. 澳洲最大鮑魚工廠 塔斯馬尼亞公司<br>
-              6. 智利最大鮑魚工廠 海珍珠公司<br>
-              7. 韓國最大松茸工廠 裕盛物產公司
-            </p>
-          </div>
-
-          <hr class="section-rule">
-        </section>
+        <hr class="section-rule">
 
       </main>
     </div><!-- /.content-wrapper -->
