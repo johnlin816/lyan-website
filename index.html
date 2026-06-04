@@ -756,7 +756,7 @@
         toggle.setAttribute('aria-expanded', 'false');
       }
 
-      toggle.addEventListener('click', function () {
+      toggle.addEventListener('click', function() {
         if (drawer.classList.contains('drawer-open')) closeDrawer();
         else openDrawer();
       });
@@ -764,18 +764,16 @@
       if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
       if (backdrop) backdrop.addEventListener('click', closeDrawer);
 
-      document.addEventListener('keydown', function (e) {
+      document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && drawer.classList.contains('drawer-open')) closeDrawer();
       });
 
-      /* touchend 修正：overflow-y:auto 捲軸會消費 touchstart，
-         導致 click 不觸發。量測垂直位移 < 10px 視為 tap，直接跳頁。 */
       var _touchStartY = 0;
-      drawer.addEventListener('touchstart', function (e) {
+      drawer.addEventListener('touchstart', function(e) {
         _touchStartY = e.touches[0].clientY;
       }, { passive: true });
 
-      drawer.addEventListener('touchend', function (e) {
+      drawer.addEventListener('touchend', function(e) {
         var link = e.target.closest('a[href]');
         if (!link) return;
         var dy = Math.abs(e.changedTouches[0].clientY - _touchStartY);
@@ -783,3 +781,9 @@
           e.preventDefault();
           window.location.href = link.getAttribute('href');
         }
+      });
+    }());
+  </script>
+
+</body>
+</html>
