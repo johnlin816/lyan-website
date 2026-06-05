@@ -316,6 +316,49 @@
     }
 
     /* =============================================
+       FAQ 採購常見問題
+    ============================================= */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: .5rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid #d5b89a;
+      padding: .8rem 0;
+    }
+    .faq-item:first-child { border-top: 1px solid #d5b89a; }
+    .faq-q {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: .4rem;
+      display: flex;
+      gap: .55rem;
+      align-items: flex-start;
+    }
+    .faq-q-badge {
+      flex-shrink: 0;
+      width: 1.35rem;
+      height: 1.35rem;
+      background: var(--color-primary);
+      color: #fff;
+      text-align: center;
+      line-height: 1.35rem;
+      font-size: .75rem;
+      font-weight: 700;
+      border-radius: 2px;
+      margin-top: .05rem;
+    }
+    .faq-a {
+      font-size: .87rem;
+      line-height: 1.8;
+      color: var(--color-text);
+      padding-left: 1.9rem;
+    }
+
+    /* =============================================
        Sub Section Header（服務據點、客戶回函）
     ============================================= */
     .subsection-header {
@@ -705,6 +748,54 @@
   <meta property="og:description" content="利安貿易有限公司客戶服務：填寫客戶回函，或查詢民生總店、民生分店服務據點地址資訊。">
   <meta property="og:image"       content="https://www.lyan.com.tw/image/imge/logo.gif">
   <link rel="canonical" href="https://www.lyan.com.tw/branch.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "如何向利安貿易詢價採購？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "本公司採批發詢價制。請來電 (02) 2553-9217 或寄信至 lyan.trade@msa.hinet.net，告知所需商品及數量，業務人員將儘速提供最優惠批發報價。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "利安貿易的最低訂購量是多少？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "最低訂購量依商品種類與規格而異，部分商品以整箱為採購單位。詳細規格請來電 (02) 2553-9217 洽詢。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "利安貿易是否可以開立統一發票？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "本公司為合法登記之進口貿易商，可開立統一發票，歡迎企業客戶索取。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "利安貿易是否接受小量試購或樣品索取？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "部分商品可提供試購或樣品，請來電或來函洽詢業務人員，我們將依商品庫存狀況進行安排。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如何確認利安貿易的產品為原裝進口正品？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "利安貿易所有產品均為原裝進口，直接與原產國廠商合作，附有進口文件與原廠出貨證明。購買時請認明本公司進口標籤，即可確認為正品。"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -753,14 +844,6 @@
 
       <!-- Main Content -->
       <main class="site-main" id="main-content">
-
-        <!-- Ticker -->
-        <div class="ticker-wrap" aria-label="最新公告" role="marquee">
-          <div class="ticker-track">
-            <span class="ticker-text">專營進口：鮑魚、干貝、刺參、飯岡屋調味南美貝、花膠魚肚、燕窩、南美貝</span>
-          </div>
-        </div>
-
         <!-- Section Heading -->
         <div class="section-heading-bar" style="padding-top:.5rem;">
           <span>客戶服務</span>
@@ -769,6 +852,10 @@
         <!-- Page TOC -->
         <nav class="page-toc" aria-label="頁面目錄">
           <ul class="toc-list">
+            <li class="toc-item">
+              <span class="toc-bullet" aria-hidden="true"></span>
+              <a href="#faq">採購常見問題</a>
+            </li>
             <li class="toc-item">
               <span class="toc-bullet" aria-hidden="true"></span>
               <a href="#suggest">填寫客戶回函</a>
@@ -783,6 +870,51 @@
             <a href="#branchstore">民生分店</a>
           </div>
         </nav>
+
+        <hr class="section-divider">
+
+        <!-- ===== 採購常見問題 FAQ ===== -->
+        <section class="faq-section" id="faq" aria-labelledby="faq-title">
+
+          <div class="subsection-header">
+            <span class="subsection-icon" aria-hidden="true"></span>
+            <h2 class="subsection-title" id="faq-title">採購常見問題</h2>
+          </div>
+
+          <dl class="faq-list">
+
+            <div class="faq-item">
+              <dt class="faq-q"><span class="faq-q-badge">Q</span>如何向利安貿易詢價採購？</dt>
+              <dd class="faq-a">本公司採批發詢價制。請來電 (02) 2553-9217 或寄信至 lyan.trade@msa.hinet.net，告知所需商品及數量，業務人員將儘速提供最優惠批發報價。</dd>
+            </div>
+
+            <div class="faq-item">
+              <dt class="faq-q"><span class="faq-q-badge">Q</span>最低訂購量是多少？</dt>
+              <dd class="faq-a">最低訂購量依商品種類與規格而異，部分商品以整箱為採購單位。詳細規格請來電洽詢。</dd>
+            </div>
+
+            <div class="faq-item">
+              <dt class="faq-q"><span class="faq-q-badge">Q</span>是否可以開立統一發票？</dt>
+              <dd class="faq-a">本公司為合法登記之進口貿易商，可開立統一發票，歡迎企業客戶索取。</dd>
+            </div>
+
+            <div class="faq-item">
+              <dt class="faq-q"><span class="faq-q-badge">Q</span>是否接受小量試購或樣品索取？</dt>
+              <dd class="faq-a">部分商品可提供試購或樣品，請來電或來函洽詢業務人員，我們將依商品庫存狀況進行安排。</dd>
+            </div>
+
+            <div class="faq-item">
+              <dt class="faq-q"><span class="faq-q-badge">Q</span>如何確認產品為原裝進口正品？</dt>
+              <dd class="faq-a">本公司所有產品均為原裝進口，直接與原產國廠商合作，附有進口文件與原廠出貨證明。購買時請認明本公司進口標籤，即可確認為正品。</dd>
+            </div>
+
+          </dl>
+
+          <div class="back-to-top">
+            <a href="#main-content" aria-label="回到頁面頂端">↑ 回頂端</a>
+          </div>
+
+        </section>
 
         <hr class="section-divider">
 

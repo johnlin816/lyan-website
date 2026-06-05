@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="利安貿易有限公司專營進口全球海鮮類產品，直接從原產國採購輸入台灣，提供干貝、鮑魚、刺參、蒟蒻粉等高品質食材，貨真價實，薄利多銷。">
+  <meta name="description" content="利安貿易有限公司（1990年代創立）台灣專業海鮮乾貨批發進口商，深耕三十年，供應五星級飯店、中高級餐廳、食品加工廠。獨家代理：海皇子鮑魚罐頭、飯岡屋調味貝、韓國松茸、白雪牌蒟蒻粉。">
   <title>公司簡介 - 利安貿易有限公司 LY AN TRADE CO.,LTD.</title>
 
   <style>
@@ -521,6 +521,46 @@
       .ticker-wrap { display: none; }
       .site-nav li a { background-image: none; border: 1px solid #ccc; }
     }
+
+    /* 服務對象清單 */
+    .service-list {
+      margin-top: .5rem;
+      margin-left: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+      font-size: .88rem;
+      line-height: 1.65;
+      color: var(--color-text);
+    }
+    .service-list li { list-style: disc; padding-left: .2rem; }
+
+    /* 代理資格標籤 */
+    .agency-tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      background: #fdf6e8;
+      border: 1px solid #c9a96e;
+      border-radius: 3px;
+      padding: 0 .4rem;
+      margin-left: .35rem;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* 採購聯絡資訊區塊 */
+    .contact-block {
+      background: #fdf6e8;
+      border-left: 3px solid var(--color-primary);
+      padding: .75rem 1rem;
+      border-radius: 0 4px 4px 0;
+      font-size: .88rem;
+      line-height: 1.9;
+      margin-top: .6rem;
+    }
+    .contact-block a { color: var(--color-primary); font-weight: 600; }
   </style>
 
   <!-- Open Graph -->
@@ -532,6 +572,46 @@
   <meta property="og:description" content="利安貿易有限公司專營進口全球海鮮類產品，直接從原產國採購輸入台灣，提供干貝、鮑魚、刺參、蒟蒻粉等高品質食材，貨真價實，薄利多銷。">
   <meta property="og:image"       content="https://www.lyan.com.tw/image/imge/logo.gif">
   <link rel="canonical" href="https://www.lyan.com.tw/introduction.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "利安貿易有限公司是哪種類型的公司？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "利安貿易有限公司（LY AN TRADE CO., LTD.）是台灣專業海鮮乾貨進口批發商，創立於1990年代初，深耕進口海鮮食材逾三十年。主要服務五星級飯店、中高級餐廳（粵菜、港式飲茶、日式與台式料理）、百貨超市、美式賣場、食品加工廠及食材批發商，採批發詢價制，不設固定零售價格。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "利安貿易代理哪些進口品牌？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "利安貿易持有以下品牌之台灣代理資格：車輪牌鮑魚罐頭（Calmex brand）、飯岡屋（Iiokaya）冷凍調味南美貝、智利南美貝罐頭（品牌：海吉妞）、澳洲鮑魚罐頭（品牌：海吉妞）、日本皇冠吉品乾鮑及北海道漁聯乾干貝。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如何向利安貿易批發採購海鮮食材？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "利安貿易採批發詢價制，歡迎企業客戶來電 (02) 2553-9217 或 email lyan.trade@msa.hinet.net 洽詢報價。公司地址：台北市大同區民生西路 401 號 1 樓。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "利安貿易主要進口哪些海鮮乾貨產品？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "主要進口產品包括：乾鮑魚（日本吉品鮑、五島明鮑、網鮑、澳洲鮑、南非鮑）、澳洲與墨西哥車輪牌鮑魚罐頭、日本北海道干貝（乾干貝與冷凍生食級）、日本北海道刺參、花膠、燕窩、南美貝及蒟蒻粉，全部產地直送、原裝進口。"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -580,14 +660,6 @@
 
       <!-- Main Content -->
       <main class="site-main" id="main-content">
-
-        <!-- Ticker -->
-        <div class="ticker-wrap" aria-label="最新公告" role="marquee">
-          <div class="ticker-track">
-            <span class="ticker-text">專營進口：鮑魚、干貝、刺參、飯岡屋調味南美貝、花膠魚肚、燕窩、南美貝</span>
-          </div>
-        </div>
-
         <!-- Page Heading -->
         <div class="page-heading-bar" aria-hidden="true">
           <span>公司簡介</span>
@@ -632,6 +704,71 @@
                 <span>印尼農業部核准出口之頂級乾燕窩</span>
               </li>
             </ol>
+          </div>
+        </article>
+
+        <hr class="section-rule">
+
+        <!-- 服務對象 -->
+        <article class="about-section" aria-labelledby="service-heading">
+          <h2 class="subsection-title" id="service-heading">服務對象</h2>
+          <div class="about-body">
+            <p>本公司以企業客戶為主要服務對象（B2B），長期供應全台各地：</p>
+            <ul class="service-list">
+              <li>五星級飯店與國際觀光飯店</li>
+              <li>中高級餐廳（粵菜、港式飲茶、日式與台式料理）</li>
+              <li>百貨超市與美式賣場</li>
+              <li>食品加工廠</li>
+              <li>食材批發商與食品貿易商</li>
+            </ul>
+          </div>
+        </article>
+
+        <hr class="section-rule">
+
+        <!-- 代理品牌 -->
+        <article class="about-section" aria-labelledby="agency-heading">
+          <h2 class="subsection-title" id="agency-heading">代理品牌</h2>
+          <div class="about-body">
+            <p>本公司持有以下品牌之台灣代理資格，全部皆為原廠直接授權：</p>
+            <ul class="partner-list" aria-label="代理品牌列表">
+              <li>
+                <span class="partner-num">◇</span>
+                <span>車輪牌鮑魚罐頭（Calmex brand）</span>
+              </li>
+              <li>
+                <span class="partner-num">◇</span>
+                <span>飯岡屋（Iiokaya）冷凍調味南美貝</span>
+              </li>
+              <li>
+                <span class="partner-num">◇</span>
+                <span>智利南美貝罐頭（品牌：海吉妞）</span>
+              </li>
+              <li>
+                <span class="partner-num">◇</span>
+                <span>澳洲鮑魚罐頭（品牌：海吉妞）</span>
+              </li>
+              <li>
+                <span class="partner-num">◇</span>
+                <span>日本皇冠吉品乾鮑、北海道漁聯乾干貝</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <hr class="section-rule">
+
+        <!-- 批發採購洽詢 -->
+        <article class="about-section" aria-labelledby="procurement-heading">
+          <h2 class="subsection-title" id="procurement-heading">批發採購洽詢</h2>
+          <div class="about-body">
+            <p>本公司採批發詢價制，不設固定零售價格。歡迎企業客戶來電或來信洽詢，我們將提供最優惠的批發報價。</p>
+            <div class="contact-block">
+              電話：<a href="tel:+886225539217">(02) 2553-9217</a><br>
+              Email：<a href="mailto:lyan.trade@msa.hinet.net">lyan.trade@msa.hinet.net</a><br>
+              地址：台北市大同區民生西路 401 號 1 樓<br>
+              聯絡人：數位行銷業務
+            </div>
           </div>
         </article>
 
